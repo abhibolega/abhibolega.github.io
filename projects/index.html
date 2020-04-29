@@ -22,12 +22,11 @@
 
 		nav {
 			background: #18454A;
-			padding-bottom: 0.5em;
+			padding-bottom: 0.7em;
 			padding-left: 1em;
 			padding-right: 1em;
 			color: #fff;
 		}
-
 
 
 		footer {
@@ -57,6 +56,7 @@
 		}
 
 		.backlink {
+			margin-top: 1.5rem;
 			float: right;
 			color: #fff;
 		}
@@ -110,6 +110,23 @@
 			text-align: justify;
 		}
 
+		.searchbox {
+			margin-left: 8rem;
+			outline: none;
+			border: none;
+			font-size: 1rem;
+			color: #fff;
+			width: 30rem;
+			padding: 0.8rem 1.5rem 0.8rem 1.5rem;
+			background: #275f66;
+			outline: none;
+			border-radius: 1rem;
+		}
+
+		.searchbox::placeholder {
+			color: #fff;
+			font-size: 1rem;
+		}
 		
 	/* Mobile Screen Optimization */
 
@@ -206,6 +223,7 @@
 		<nav>
 			<div class="heading">
 				Projects by&nbsp &nbsp<font style="font-size: 2em;" face="khand">abhibolega</font>
+				<input type="text" class="searchbox" id="searchbox" placeholder="Search Project...">
 				<h3 class="backlink"><a href=".."> ◄ Back to my Website</a></h3>
 			</div>	
 		</nav>	
@@ -213,7 +231,7 @@
 <!-- Contents of the Page -->
 		<section>
 			<div class="project">
-				<h2>McCabe-Thiele Plot</h2>
+				<h2 class="projectHeading">McCabe-Thiele Plot</h2>
 				<div class="thumb"><img src="mccabe.PNG" class="thumbnail"></div>
 				<div class="content">
 					<p>Made on an Excel spreadsheet, this plot draws the McCabe-Thiele plot when provided with the VLE data and other essential Parameters.</p>
@@ -221,7 +239,7 @@
 				</div>
 			</div>
 			<div class="project">
-				<h2>Linear Interpolation</h2>
+				<h2 class="projectHeading">Linear Interpolation</h2>
 				<img src="linear.PNG" class="thumbnail">
 				<div class="content">
 					<p>A very simple but useful Excel based project to calculate value corresponding to other value using Linear Interpolation.</p>
@@ -232,6 +250,26 @@
 
 <!-- Footer -->
 		<footer>© <a href="..">abhibolega</a></footer>
-	</div>	
+	</div>
+	<script type="text/javascript">
+		var search = document.getElementById("searchbox");
+		search.onkeyup = function(e){
+    var searchvalues = this.value.toLowerCase().split(" ");
+    console.log(searchvalues);
+    var projects = document.getElementsByClassName("project");
+    var match = false;
+    for(var i = 0; i < projects.length; i++){
+        var match = false;
+        for(var j = 0; j < searchvalues.length; j++){
+            if(projects[i].textContent.toLowerCase().indexOf(searchvalues[j]) != -1){
+                match = true;
+                break;
+            }
+        }
+        if(match) projects[i].style.display = "block";
+        else projects[i].style.display = "none";   
+    }
+}
+	</script>
 </body>
 </html>
