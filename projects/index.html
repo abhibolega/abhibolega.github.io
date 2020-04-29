@@ -70,11 +70,13 @@
 			color: #fff;
 		}
 
+
 		.thumbnail {
 			height: 10em;
 			width: 16em;
 			display: block;
 			border: 0.2em solid grey;
+			margin-left: 0.7em;
 		}
 
 		button {
@@ -99,11 +101,16 @@
 			font-weight: bold;
 		}
 
+		.project h2 {
+			padding: 0.5em 1em 0em 0.5em;
+		}
+
 		.project p {
 			padding: 0 0.7em 0 0.7em;
 			text-align: justify;
 		}
 
+		
 	/* Mobile Screen Optimization */
 
 		@media only screen and (max-width: 600px) {
@@ -164,15 +171,19 @@
 		<section>
 			<div id="project" class="project">
 				<h2>McCabe-Thiele Plot</h2>
-				<img src="mccabe.png" class="thumbnail">
-				<p>Made on an Excel spreadsheet, this plot draws the McCabe-Thiele plot when provided with the VLE data and other essential Parameters.</p>
-				<label>Version 0.0.0.1 (beta) </label><br><a href="mccabethiele_0.0.0.1_betass.xlsm"><button>Download</button></a>
+				<div class="thumb"><img src="mccabe.png" class="thumbnail"></div>
+				<div class="content">
+					<p>Made on an Excel spreadsheet, this plot draws the McCabe-Thiele plot when provided with the VLE data and other essential Parameters.</p>
+					<label>Version 0.0.0.1 (beta) </label><br><a href="mccabethiele_0.0.0.1_betass.xlsm"><button>Download</button></a>
+				</div>
 			</div>
 			<div id="project" class="project">
 				<h2>Linear Interpolation</h2>
 				<img src="linear.png" class="thumbnail">
-				<p>A very simple but useful Excel based project to calculate value corresponding to other value using Linear Interpolation.</p>
-				<label>Final Version </label><br><a href="linearinterpolation.xlsm"><button>Download</button></a>
+				<div class="content">
+					<p>A very simple but useful Excel based project to calculate value corresponding to other value using Linear Interpolation.</p>
+					<label>Final Version </label><br><a href="linearinterpolation.xlsm"><button>Download</button></a>
+				</div>
 			</div>
 		</section>
 
