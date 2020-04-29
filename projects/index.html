@@ -30,7 +30,7 @@
 
 		footer {
 			background: #212121;
-			position: absolute;
+			margin-top: 5em;
   			bottom: 0;
   			width: 100%;
   			height: 2em;
@@ -67,6 +67,23 @@
 		.backlink a:click {
 			color: #fff;
 		}
+
+		.thumbnail {
+			height: 10em;
+			width: 12em;
+		}
+
+		button {
+			margin: 1em;
+			outline: none;
+			color: #fff;
+			font-weight: bold;
+			background:  #40B3A2;
+			border-radius: 0.5em;
+			border: none;
+			padding: 0.8em 1.1em;
+		}
+
 
 		@media only screen and (max-width: 600px) {
 
@@ -108,13 +125,15 @@
 		<section>
 			<div>
 				<h2>McCabe-Thiele Plot</h2>
+				<img src="images/mccabe.png" class="thumbnail">
 				<p>Made on an Excel spreadsheet, this plot draws the McCabe-Thiele plot when provided with the VLE data and other essential Parameters.</p>
-				<label>Version 0.0.0.1 (beta) </label><a href="mccabethiele_0.0.0.1_betass.xlsm"><button>Download</button></a>
+				<label>Version 0.0.0.1 (beta) </label><br><a href="mccabethiele_0.0.0.1_betass.xlsm"><button>Download</button></a>
 			</div>
 			<div>
 				<h2>Linear Interpolation</h2>
+				<img src="images/linear.png" class="thumbnail">
 				<p>A very simple but useful Excel based project to calculate value corresponding to other value using Linear Interpolation.</p>
-				<label>Final Version </label><a href="linearinterpolation.xlsm"><button>Download</button></a>
+				<label>Final Version </label><br><a href="linearinterpolation.xlsm"><button>Download</button></a>
 			</div>
 		</section>
 
