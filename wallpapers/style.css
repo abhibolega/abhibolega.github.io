@@ -1,0 +1,76 @@
+@font-face {
+  font-family: C_L_Bold;
+  src: url(c_l_bold.ttf);
+}
+
+@font-face {
+  font-family: C_L;
+  src: url(c_l.ttf);
+}
+
+html {
+	padding: 2rem;
+	background: #4a4a4a;
+	color: #e8e8e8;
+	cursor: default;
+	user-select: none;
+}
+
+h1 {
+	font-family: C_L_Bold;
+	text-align: justify;
+	margin-bottom: 2rem;
+}
+
+.container {
+	text-align: center;
+	margin: auto;
+}
+
+.wallpaper h2 {
+	font-family: C_L;
+	font-size: 2rem;
+}
+
+.wallpaper img {
+	height: 20rem;
+}
+
+.wallpaper {
+	float: left;
+	margin: 1rem;
+}
+
+.wallpaper button {
+	margin-top: 1rem;
+	background: #121212;
+	border-radius: 0.5rem;
+	color: #fff;
+	font-size: 1.5rem;
+	font-family: C_L_Bold;
+	padding: 1.5rem;
+	border: none;
+	outline: none;
+}
+
+footer {
+	width: 100%;
+	padding-top: 10rem;
+	text-align: center;
+	float: left;
+	bottom: 0;
+	font-size: 2rem;
+	font-family: C_L_Bold;
+	color: #e8e8e8;
+	text-decoration-style: none; 
+}
+
+footer a {
+	color: #e8e8e8;
+	text-decoration: none;
+}
+
+footer a click {
+	color: #e8e8e8;
+	text-decoration: none;
+}
