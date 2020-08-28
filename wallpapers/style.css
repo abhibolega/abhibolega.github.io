@@ -20,6 +20,7 @@ h1 {
 	font-family: C_L_Bold;
 	text-align: justify;
 	margin-bottom: 2rem;
+	margin-top: -1rem;
 }
 
 .container {
@@ -48,7 +49,7 @@ h1 {
 	color: #fff;
 	font-size: 1.5rem;
 	font-family: C_L_Bold;
-	padding: 1.5rem;
+	padding: 1rem 1.5rem 1rem 1.5rem;
 	border: none;
 	outline: none;
 }
