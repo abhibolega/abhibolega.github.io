@@ -10,7 +10,7 @@
 
 html {
 	padding: 2rem;
-	background: #4a4a4a;
+	background: #091E21;
 	color: #e8e8e8;
 	cursor: default;
 	user-select: none;
@@ -25,7 +25,6 @@ h1 {
 
 .container {
 	text-align: center;
-	margin: auto;
 }
 
 .wallpaper h2 {
@@ -34,17 +33,13 @@ h1 {
 }
 
 .wallpaper img {
-	height: 20rem;
-}
-
-.wallpaper {
-	float: left;
-	margin: 1rem;
+	max-height: 100%;
+	max-width: 100%;
 }
 
 .wallpaper button {
 	margin-top: 1rem;
-	background: #121212;
+	background: #AFB0AA;
 	border-radius: 0.5rem;
 	color: #fff;
 	font-size: 1.5rem;
@@ -75,3 +70,32 @@ footer a click {
 	color: #e8e8e8;
 	text-decoration: none;
 }
+
+@media only screen and (max-width: 600px) {
+	
+		html {
+			padding: 1rem;
+		}
+
+		h1 {
+			font-size: 1.2rem;
+			margin-top: 0.5rem;
+		}
+
+		.wallpaper h2 {
+			font-size: 1.2rem;
+		}
+
+		.wallpaper button {
+			margin-top: 1rem;
+			background: #AFB0AA;
+			border-radius: 0.5rem;
+			color: #fff;
+			font-size: 1.2rem;
+			font-family: C_L_Bold;
+			padding: 0.7rem 1rem 0.7rem 1rem;
+			border: none;
+			outline: none;
+			margin-bottom: 1.5rem;
+		}
+	}
