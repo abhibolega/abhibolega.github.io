@@ -30,6 +30,7 @@ h1 {
 .wallpaper h2 {
 	font-family: C_L;
 	font-size: 2rem;
+	margin-top: 4rem;
 }
 
 .wallpaper img {
@@ -47,6 +48,10 @@ h1 {
 	padding: 1rem 1.5rem 1rem 1.5rem;
 	border: none;
 	outline: none;
+}
+
+.wallpaper button:hover {
+	background: #67b4b8
 }
 
 footer {
