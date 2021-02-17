@@ -1,9 +1,18 @@
-
 <html>
+    <head>
+        <link rel="icon" type="image/svg" href="icons/favicon.svg">
+        <title>Abhinav Mishra</title>
+        <link rel="stylesheet" type="text/css" href="fonts/fonts.css">
+    </head>
     <style>
         body{
+            background: #fff2d3;
             height: 100em;
             margin: 0;
+        }
+
+        div {
+            display: inline-block;
         }
 
         .social-icons {
@@ -39,8 +48,20 @@
             line-height: 100vh;
             vertical-align: middle;
             bottom: 50%;
-            transform: translate3d(-50%,-20%,0);
+            transform: translate3d(-50%,0,0);
             transition: opacity 1s ease;
+        }
+
+        .intro-name p {
+            font-size: 5em;
+            font-family: Champagne_Limousines;
+            position: absolute;
+            margin: auto;
+            top: 5em;
+            left: 30%;
+            right: 30%;
+            text-align: center;
+            color: #1D1747;
         }
 
         /******************CSS for the Browser Scrollbar Starts Here!******************/
@@ -71,6 +92,9 @@
         <div id="dpContainer">
             <img class="dp left" src="left.svg"/>
             <img class="dp right" src="right.svg"/>
+        </div>
+        <div class="intro-name">
+            <p>I am Abhinav.</p>
         </div>
     </body>
     <script>
