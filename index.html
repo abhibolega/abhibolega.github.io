@@ -1,11 +1,27 @@
 <html>
     <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162665823-1"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-162665823-1');
+        </script>
         <link rel="icon" type="image/svg" href="icons/favicon.svg">
         <title>Abhinav Mishra</title>
         <link rel="stylesheet" type="text/css" href="fonts/fonts.css">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="UTF-8">
+        <meta name="author" content="Abhinav Mishra">
+        <meta name="keywords" content="abhibolega, Abhinav, Mishra, Engineer, Freelancer, Thapar, India">
+        <meta content='Hey There! I am an Engineer. I did my schooling from Patna, India, and graduation from Patiala, India. My current fields of interest are Alternate Fuels and Different aspects of Cryptocurrency. ' name='description'/>
     </head>
     <style>
         body{
+            cursor: default;
             background: #fff2d3;
             height: 100em;
             margin: 0;
@@ -29,7 +45,8 @@
         }
 
         .social-icons-holder {
-            float: right;
+            position: fixed;
+            left: 90%;
         }
 
         #dpContainer{
@@ -64,6 +81,38 @@
             color: #1D1747;
         }
 
+        .intro-name font {
+            text-decoration-line: underline;
+            text-decoration-style: solid;
+            text-decoration-color: #1c2426;
+            text-decoration-thickness: 0.05em;
+        } 
+
+        .blog-link a:link, a:visited {
+            height: 1.9em;
+            width: 9.5em;
+            background: #9F4EA6;
+            text-decoration: none;
+            color: white;
+            font-family: Champagne_Limousines;
+            position: absolute;
+            margin: auto;
+            top: 37em;
+            left: 40%;
+            right:40%;
+            text-align: center;
+            font-size: 2em;
+            padding-top: 0.7em;
+            display: inline-block;
+            cursor: default;
+            border-radius: 0.4em;
+        }
+
+        .blog-link a:hover{
+            background: #8A90FF;
+        }
+
+
         /******************CSS for the Browser Scrollbar Starts Here!******************/
 
         body::-webkit-scrollbar {
@@ -85,17 +134,18 @@
     
     <body>
         <div class="social-icons-holder">
-            <img class="social-icons" src="icons/twitter.svg">
-            <img class="social-icons" src="icons/linkedin.svg">
-            <img class="social-icons" src="icons/instagram.svg">
+            <a href="https://twitter.com/abhibolega" target="_blank"><img class="social-icons" src="icons/twitter.svg"></a>
+            <a href="https://instagram.com/abhibolega" target="_blank"><img class="social-icons" src="icons/linkedin.svg"></a>
+            <a href="https://linkedin.com/in/abhibolega" target="_blank"><img class="social-icons" src="icons/instagram.svg"></a>
         </div>
         <div id="dpContainer">
             <img class="dp left" src="left.svg"/>
             <img class="dp right" src="right.svg"/>
         </div>
         <div class="intro-name">
-            <p>I am Abhinav.</p>
+            <p>I am <font>Abhinav</font>.</p>
         </div>
+        <div class="blog-link"><a href="https:abhibolega.blogspot.com" target="_blank">visit my blog.</a></div>
     </body>
     <script>
         var maxX = 200; // max value of scroll for splitting
