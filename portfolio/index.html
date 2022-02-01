@@ -7,18 +7,29 @@
     <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <style type="text/css">
-	body{
-	    width: 1920px;	
+	html{
             cursor: default;
             background-image: url('portfolio.png');
             background-repeat: no-repeat;
-            background-position: center;
+            background-position: top center;
             background-size: cover;
             margin: 0;
             height: 4534px;
         }
+
+    @media (max-width: 1366px) {
+    html {
+        background-image: url(portfolio.png);
+        background-size: cover;
+        height: 3260px;
+    }
+
+    img {
+        height: 411px;
+    }
+}    
 </style>
 <body>
-    <img src="jetha.gif" height="578px" style="position: absolute; margin: 288px 256px 0 1280px;">
+    <img src="jetha.gif" height="578" style="position: relative; margin: 15% 0 0 66.67%;">
 </body>
 </html>
