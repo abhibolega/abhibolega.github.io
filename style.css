@@ -1,0 +1,26 @@
+@font-face {
+    font-family: "Khand";
+    src: url(./data/fonts/khand.ttf);
+}
+
+@font-face {
+    font-family: "Champagne";
+    src: url(./data/fonts/Champagne\ &\ Limousines.ttf)
+}
+
+.nav-logo {
+    font-family: Champagne, sans-serif;
+}
+
+.footer-logo {
+    font-family: Khand, sans-serif;
+    font-weight: bold;
+}
+
+.btn {
+    border-radius: 0;
+}
+
+.display-picture{ 
+    border: 10px solid #212529;
+}
