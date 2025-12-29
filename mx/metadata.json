@@ -1,0 +1,7 @@
+{
+  "name": "WCM Mastery for Process Engineers",
+  "description": "An intensive, interactive learning module on World Class Manufacturing (WCM) specifically tailored for Chemical Process Engineers, featuring AI-powered tutoring and detailed pillar breakdowns.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
