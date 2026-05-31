@@ -135,15 +135,11 @@
         }
     
         h1 {
-    
-            font-family: "Khand", sans-serif;
-            font-size: clamp(2.2rem, 8vw, 4rem);
-    
-            margin: 1rem 0 0;
-            color: var(--heading);
-    
-            letter-spacing: 1px;
-        }
+    font-family: "Khand", sans-serif;
+    font-size: clamp(2.2rem, 8vw, 4rem);
+    white-space: nowrap;
+    letter-spacing: 1px;
+}
     
         .subtitle {
     
@@ -311,6 +307,15 @@ transform: translateY(-1px);
     
         @media (max-width: 768px) {
 
+    .profile-image {
+        width: 150px;
+        height: 150px;
+    }
+
+    .subtitle {
+        font-size: 0.9rem;
+    }
+            
     .socials {
 
         justify-content: center;
