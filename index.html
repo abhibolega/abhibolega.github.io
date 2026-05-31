@@ -29,7 +29,7 @@
     
         @font-face {
             font-family: "Khand";
-            src: url("assets/fonts/Khand-Medium.ttf") format("truetype");
+            src: url("assets/khand.ttf") format("truetype");
             font-weight: normal;
             font-style: normal;
         }
@@ -310,24 +310,29 @@ transform: translateY(-1px);
         }
     
         @media (max-width: 768px) {
-    
-            h1 {
-    
-                font-size: 3rem;
-            }
-    
-            .profile-image {
-    
-                width: 150px;
-                height: 150px;
-            }
-    
-            .socials {
-    
-                flex-direction: column;
-                align-items: center;
-            }
-        }
+
+    .socials {
+
+        justify-content: center;
+        gap: 0.75rem;
+    }
+
+    .social-link {
+
+        width: 44px;
+        height: 44px;
+
+        padding: 0;
+
+        justify-content: center;
+    }
+
+    .social-link span {
+
+        display: none;
+    }
+
+}
     
     </style>
     
@@ -447,22 +452,22 @@ transform: translateY(-1px);
     
             <a class="social-link" href="https://www.linkedin.com/in/abhibolega/" target="_blank">
                 <i class="fab fa-linkedin"></i>
-                LinkedIn
+                <span>LinkedIn</span>
             </a>
     
             <a class="social-link" href="https://www.youtube.com/@abhibolega" target="_blank">
                 <i class="fab fa-youtube"></i>
-                YouTube
+                <span>YouTube</span>
             </a>
     
             <a class="social-link" href="https://abhibolega.wordpress.com/" target="_blank">
                 <i class="fas fa-pen"></i>
-                Blog
+                <span>Blog</span>
             </a>
     
             <a class="social-link" href="mailto:abhibolega@outlook.com">
                 <i class="fas fa-envelope"></i>
-                Email
+                <span>Email</span>
             </a>
     
         </div>
