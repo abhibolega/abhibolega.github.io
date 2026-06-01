@@ -102,8 +102,10 @@
         .navbar {
 
     position: fixed;
-    top: 1rem;
-    left: 1rem;
+
+    top: 2rem;
+
+    left: calc(50% - (680px / 2) + 1.5rem);
 
     z-index: 1000;
 }
@@ -426,6 +428,12 @@ body:not(.dark) .social-link:hover {
         }
     
         @media (max-width: 1080px) {
+
+            .navbar {
+
+        left: 1.5rem;
+        top: 2rem;
+    }
 
     .profile-image {
         width: 120px;
