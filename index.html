@@ -49,14 +49,31 @@
         }
     
         body.dark {
-    
-            --bg: #0f1b2d;
-            --card-bg: #162338;
-            --text: #dbeafe;
-            --heading: #ffffff;
-            --accent: #7db7ff;
-            --border: #2b3d59;
-        }
+
+    --bg:
+        radial-gradient(
+            circle at top left,
+            rgba(72, 135, 255, 0.12),
+            transparent 50%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            rgba(121, 80, 242, 0.10),
+            transparent 45%
+        ),
+        radial-gradient(
+            circle at center right,
+            rgba(34, 197, 94, 0.08),
+            transparent 30%
+        ),
+        #0f1b2d;
+
+    --card-bg: #162338;
+    --text: #dbeafe;
+    --heading: #ffffff;
+    --accent: #7db7ff;
+    --border: #2b3d59;
+}
     
         * {
             box-sizing: border-box;
@@ -132,7 +149,14 @@
             border-radius: 50%;
     
             border: 3px solid var(--border);
+            
         }
+
+        body.dark .profile-image {
+
+    box-shadow:
+        0 0 30px rgba(125, 183, 255, 0.15);
+}
     
         h1 {
     font-family: "Khand", sans-serif;
@@ -274,21 +298,38 @@ transform: translateY(-1px);
         }
     
         .social-link {
-    
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-    
-            padding: 0.6rem 1rem;
-    
-            border: 1px solid var(--border);
-            border-radius: 8px;
-        }
-    
-        .social-link:hover {
-    
-            text-decoration: none;
-        }
+
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+
+    padding: 0.5rem 0.9rem;
+
+    border: 1px solid var(--border);
+    border-radius: 999px;
+
+    color: var(--text);
+
+    transition: all 0.2s ease;
+}
+
+.social-link i {
+    color: var(--accent);
+}
+
+.social-link:hover {
+
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+
+body.dark .social-link:hover {
+    background: rgba(125, 183, 255, 0.08);
+}
+
+body:not(.dark) .social-link:hover {
+    background: rgba(37, 99, 235, 0.06);
+}
     
         .footer-divider {
 
@@ -308,8 +349,8 @@ transform: translateY(-1px);
         @media (max-width: 1080px) {
 
     .profile-image {
-        width: 100px;
-        height: 100px;
+        width: 120px;
+        height: 120px;
     }
 
     .subtitle {
@@ -386,7 +427,7 @@ transform: translateY(-1px);
         </p>
     
         <p>
-            Outside of work, I like to play the keyboard, ukulele, and kalimba, read, write occasional thoughts on my blog, and spend time playing FIFA and GTA. I am a Quiz enthusiast and have competed at the national level during school.
+            Outside of work, I like to play the keyboard, ukulele, and kalimba, read, write occasional thoughts on my blog, and spend time playing FIFA and GTA. I am a quizzing enthusiast and have competed at the national level during school.
         </p>
     
         <p>
@@ -429,7 +470,7 @@ transform: translateY(-1px);
                 rel="noopener noreferrer">
     
                 <i class="fas fa-book-open"></i>
-                Currently Reading - Shattered Lands · Sam Dalrymple
+                Currently Reading: Shattered Lands - Sam Dalrymple
     
             </a>
     
@@ -573,7 +614,7 @@ document.getElementById("random-song").href =
     selectedSong.url;
 
 document.getElementById("song-text").textContent =
-    `Today's Music Recommendation · ${selectedSong.title}`;
+    `Today's Music Recommendation: ${selectedSong.title}`;
     
     </script>
     
