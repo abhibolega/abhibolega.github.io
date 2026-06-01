@@ -98,6 +98,83 @@
                 background var(--transition-speed),
                 color var(--transition-speed);
         }
+
+        .navbar {
+
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+
+    z-index: 1000;
+}
+
+#menu-toggle {
+
+    width: 44px;
+    height: 44px;
+
+    border: 1px solid var(--border);
+    border-radius: 50%;
+
+    background: var(--card-bg);
+    color: var(--text);
+
+    cursor: pointer;
+
+    font-size: 1rem;
+
+    transition: 0.2s ease;
+}
+
+#menu-toggle:hover {
+
+    transform: scale(1.05);
+}
+
+.nav-menu {
+
+    position: absolute;
+    top: 55px;
+    left: 0;
+
+    display: none;
+    flex-direction: column;
+
+    min-width: 220px;
+
+    padding: 0.5rem;
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    background: var(--card-bg);
+
+    backdrop-filter: blur(10px);
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.nav-menu.show {
+
+    display: flex;
+}
+
+.nav-menu a {
+
+    padding: 0.8rem 1rem;
+
+    color: var(--text);
+
+    text-decoration: none;
+
+    border-radius: 8px;
+}
+
+.nav-menu a:hover {
+
+    background: rgba(255,255,255,0.08);
+    text-decoration: none;
+}
     
         .container {
     
@@ -389,6 +466,39 @@ body:not(.dark) .social-link:hover {
     
     <body>
     
+    <nav class="navbar">
+
+    <button id="menu-toggle" aria-label="Menu">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="nav-menu" id="nav-menu">
+
+        <a href="#intro">
+    <i class="fas fa-user"></i>
+    Introduction
+</a>
+
+<a href="#projects">
+    <i class="fas fa-flask"></i>
+    Featured Projects
+</a>
+
+<a href="#misc">
+    <i class="fas fa-book"></i>
+    Misc
+</a>
+
+<a href="https://abhibolega.wordpress.com"
+   target="_blank">
+    <i class="fas fa-arrow-up-right-from-square"></i>
+    Blog
+</a>
+
+    </div>
+
+</nav>
+
     <div class="container">
     
     
@@ -414,7 +524,7 @@ body:not(.dark) .social-link:hover {
     
     </header>
     
-    <section>
+    <section id="intro">
     
         <p>
             Hi, I'm an engineer based in India and associated with the chemical manufacturing sector. I currently work in the Business Excellence domain. Previously, I have worked in Production and Process Engineering roles.
@@ -438,7 +548,7 @@ body:not(.dark) .social-link:hover {
     
     </section>
     
-    <section>
+    <section id="projects">
     <hr class="footer-divider"> <br>
     <h2 style="text-align: left;">Featured Project(s)</h2>
 
@@ -471,8 +581,7 @@ body:not(.dark) .social-link:hover {
 <br>
     <hr class="footer-divider">
 
-    <section>
-
+    <section id="misc">
     
         <div class="music-player">
     
@@ -651,6 +760,33 @@ document.getElementById("random-song").href =
 document.getElementById("song-text").textContent =
     `Today's Music Recommendation: ${selectedSong.title}`;
     
+    const menuToggle = document.getElementById("menu-toggle");
+const navMenu = document.getElementById("nav-menu");
+
+menuToggle.addEventListener("click", () => {
+
+    navMenu.classList.toggle("show");
+});
+
+document.querySelectorAll(".nav-menu a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navMenu.classList.remove("show");
+    });
+});
+
+document.addEventListener("click", (e) => {
+
+    if (
+        !menuToggle.contains(e.target) &&
+        !navMenu.contains(e.target)
+    ) {
+
+        navMenu.classList.remove("show");
+    }
+});
+
     </script>
     
     </body>
