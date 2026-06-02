@@ -436,10 +436,11 @@ body:not(.dark) .social-link:hover {
         }
     
         footer {
-    
+
             text-align: center;
             font-size: 0.9rem;
             opacity: 0.7;
+            
         }
     
         @media (max-width: 1080px) {
@@ -481,6 +482,11 @@ body:not(.dark) .social-link:hover {
     }
 
 }
+
+footer i {
+    color: var(--accent);
+    margin-right: 4px;
+}
     
     </style>
     
@@ -488,7 +494,7 @@ body:not(.dark) .social-link:hover {
     </head>
     
     <body>
-    
+
     <nav class="navbar">
 
     <button id="menu-toggle" aria-label="Menu">
@@ -689,9 +695,9 @@ body:not(.dark) .social-link:hover {
     
     <hr class="footer-divider">
     
-    <footer>
-        © 2026 Abhinav Mishra
-    </footer>
+    <footer id="footer-info">
+    Loading...
+</footer>
     
     
     </div>
@@ -809,6 +815,41 @@ document.addEventListener("click", (e) => {
         navMenu.classList.remove("show");
     }
 });
+
+function updateFooterClock() {
+
+    const now = new Date();
+
+    const istTime = now.toLocaleTimeString(
+        "en-IN",
+        {
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: false,
+            timeZone: "Asia/Kolkata"
+        }
+    );
+
+    const footer =
+        document.getElementById("footer-info");
+
+    const location =
+        footer.dataset.location ||
+        "Somewhere on Earth";
+
+    footer.innerHTML =
+        `<i class="fas fa-earth-asia"></i> ${location} • ${istTime} IST`;
+}
+
+const footer =
+    document.getElementById("footer-info");
+
+footer.dataset.location =
+    "Pune, India";
+
+updateFooterClock();
+
+setInterval(updateFooterClock, 1000);
 
     </script>
     
