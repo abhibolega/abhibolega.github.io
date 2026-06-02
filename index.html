@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-
-<html lang="en">
     <!DOCTYPE html>
 
     <html lang="en">
@@ -737,45 +734,65 @@ footer i {
         });
 
         const songs = [
+    
+    {
+        title: "Choo Lo — The Local Train",
+        url: "https://youtube.com/watch?v=uB5bf7LQPVU"
+    },
+    
+    {
+        title: "Giant — Rag'n'Bone Man",
+        url: "https://youtube.com/watch?v=ir6nk2zrMG0"
+    },
+
+    {
+        title: "Raging — Kodaline",
+        url: "https://www.youtube.com/watch?v=ZWyktWYW3ZM"
+    },
+
+    {
+        title: "Stay Together for the Kids — blink182",
+        url: "https://youtu.be/k1BFHYtZlAU?si=UMvC3C0LGPAKy93"
+    },
 
     {
         title: "Oh Devil — Electronic Guest",
-        url: "https://www.youtube.com/watch?v=lovItxASXK4"
+        url: "https://youtu.be/1H7NKHrV4_w?si=b7ryQPwD8VPd88Ix"
     },
 
     {
         title: "On Melancholy Hill — Gorillaz",
-        url: "https://www.youtube.com/watch?v=04mfKJWDSzI"
+        url: "https://youtu.be/04mfKJWDSzI?si=nauqFfV4qZp0GxxR"
     },
 
     {
         title: "Tokyo Nights — Digital Farm Animals",
-        url: "https://www.youtube.com/watch?v=a-babz7z4aw"
+        url: "https://youtu.be/T692utQOQvI?si=zZaS3e6E2bbQ6o1f"
     },
 
     {
-        title: "OK Not To Be OK — Marshmello & Demi Lovato",
-        url: "https://www.youtube.com/watch?v=wKzwcY3j-1M"
+        title: "OK Not To Be OK — Marshmello",
+        url: "https://youtu.be/wAPlzt2L7wE?si=8NsFL2HvpKtgiLH0"
     },
 
     {
         title: "Noor — Lost Stories",
-        url: "https://www.youtube.com/watch?v=h8gbjXw6aE8"
+        url: "https://youtu.be/f-CBG061wJ8?si=JP0P5Yw506C5UNOB"
     },
 
     {
         title: "Manmohana — Moksher",
-        url: "https://www.youtube.com/watch?v=Y4wK1CqGQ0M"
+        url: "https://youtu.be/XiDiTsIxjsE?si=58w9Y3CRDEfIYpLE"
     },
 
     {
         title: "Latthey Di Chaadar — Coke Studio",
-        url: "https://www.youtube.com/watch?v=0Hnw4nwaNCc"
+        url: "https://youtu.be/SCOKysMnH50?si=Ln_vSEa8dJaD4sUV"
     },
 
     {
         title: "Firestone — Kygo",
-        url: "https://www.youtube.com/watch?v=9Sc-ir2UwGU"
+        url: "https://youtu.be/9Sc-ir2UwGU?si=JVi0yfKdNGWLYZKv"
     }
 
 ];
@@ -841,6 +858,47 @@ function updateFooterClock() {
         `<i class="fas fa-earth-asia"></i> ${location} • ${istTime} IST`;
 }
 
+const footer =
+    document.getElementById("footer-info");
+
+/* default value */
+footer.dataset.location =
+    "Somewhere on Earth";
+
+updateFooterClock();
+
+setInterval(updateFooterClock, 1000);
+
+fetch("https://ipwho.is/")
+    .then(response => response.json())
+    .then(data => {
+
+        if (data.success === false) {
+            throw new Error("Location lookup failed");
+        }
+
+        const city =
+            data.city || "";
+
+        const country =
+            data.country || "";
+
+        footer.dataset.location =
+            city && country
+                ? `${city}, ${country}`
+                : country || "Somewhere on Earth";
+
+        updateFooterClock();
+    })
+    .catch(error => {
+
+        console.log(error);
+
+        footer.dataset.location =
+            "Somewhere on Earth";
+
+        updateFooterClock();
+    });
 
 
     </script>
