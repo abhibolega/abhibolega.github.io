@@ -261,7 +261,7 @@ z-index: 1000;
         .subtitle {
     
             margin-top: -10px;
-            font-size: 1rem;
+            font-size: 1.1rem;
             opacity: 0.8;
         }
     
@@ -454,7 +454,7 @@ body:not(.dark) .social-link:hover {
     }
 
     .subtitle {
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
             
     .socials {
@@ -586,9 +586,9 @@ footer i {
     
         <h1>Abhinav Mishra</h1>
     
-        <div class="subtitle">
-            Engineer    •   Learner     •    Musician
-        </div>
+        <div class="subtitle" id="dynamic-subtitle">
+    Loading...
+</div>
     
     </header>
     
@@ -1107,6 +1107,105 @@ window.addEventListener("scroll", () => {
         }
     });
 });
+
+const permanent = "Engineer";
+
+const others = [
+
+    "Learner",
+    "Musician",
+    "Quizzer",
+    "Blogger",
+    "Procrastinator",
+    "Day Dreamer",
+    "Easily Bored",
+    "Lazy"
+
+];
+
+const subtitle =
+    document.getElementById("dynamic-subtitle");
+
+const chars =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&*";
+
+function randomChar() {
+
+    return chars[
+        Math.floor(Math.random() * chars.length)
+    ];
+}
+
+function scrambleTo(target, callback) {
+
+    let frame = 0;
+
+    const maxFrames = 12;
+
+    const interval = setInterval(() => {
+
+        const progress =
+            frame / maxFrames;
+
+        const revealCount =
+            Math.floor(target.length * progress);
+
+        let output = "";
+
+        for (let i = 0; i < target.length; i++) {
+
+            if (i < revealCount) {
+
+                output += target[i];
+
+            } else if (target[i] === " ") {
+
+                output += " ";
+
+            } else {
+
+                output += randomChar();
+            }
+        }
+
+        callback(output);
+
+        frame++;
+
+        if (frame > maxFrames) {
+
+            clearInterval(interval);
+
+            callback(target);
+        }
+
+    }, 40);
+}
+
+function getRandomTraits() {
+
+    return [...others]
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 2);
+}
+
+function updateSubtitle() {
+
+    const traits =
+        getRandomTraits();
+
+    const targetText =
+        `${permanent} • ${traits[0]} • ${traits[1]}`;
+
+    scrambleTo(
+        targetText,
+        text => subtitle.textContent = text
+    );
+}
+
+updateSubtitle();
+
+setInterval(updateSubtitle, 5000);
 
     </script>
     
