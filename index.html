@@ -81,6 +81,12 @@
             --accent: #7db7ff;
             --border: #2b3d59;
         }
+
+        .nav-menu a.active {
+
+    background: rgba(125,183,255,0.12);
+    color: var(--accent);
+}
     
         * {
             box-sizing: border-box;
@@ -474,6 +480,23 @@ body:not(.dark) .social-link:hover {
 
 }
 
+.project-card {
+
+    padding: 1rem 1.25rem;
+
+    border: 1px solid var(--border);
+    border-radius: 14px;
+
+    margin-bottom: 1.25rem;
+
+    transition: 0.2s ease;
+}
+
+.project-card:hover {
+
+    transform: translateY(-2px);
+}
+
 footer i {
     color: var(--accent);
     margin-right: 4px;
@@ -599,32 +622,33 @@ footer i {
     <i class="fas fa-flask"></i>
     Featured Projects
 </h2>
+<div class="project-card">
 
-    <p>
         <strong>
             <a href="https://abhibolega.substack.com/p/turning-shop-floor-data-into-a-maintenance-management-system" target="_blank">
                 Spreadsheet-Based Maintenance Management System
             </a>
         </strong>
-    </p>
+
 
     <p>
         A maintenance management system built using spreadsheets to track breakdowns,
             maintenance history, open jobs, and reliability trends using existing shop-floor data.
     </p>
+</div>
 <br>
-        <p>
+        <div class="project-card">
         <strong>
             <a href="https://abhibolega.substack.com/p/turning-procurement-records-into-an-inventory-planning-tool" target="_blank">
                 Procurement Lead-Time & Inventory Planning System
             </a>
         </strong>
-    </p>
+
 
     <p>
         A spreadsheet-based procurement planner built using historical purchase requisition data to track material lead times, maintain procurement records, and support inventory planning through data-driven delivery date estimation.
     </p>
-
+</div>
 </section>
 <br>
   
@@ -632,18 +656,19 @@ footer i {
     <hr class="footer-divider"> <br>
     <h2 style="text-align: left; font-family: khand;"> <i class="fas fa-feather"></i> khayal-e-abhibolega</h2>
 
-    <p>
+           <div class="project-card">
         <strong>
             <a href="https://abhibolega.substack.com/p/the-back-side-of-the-newspaper" target="_blank">
                 The Back Side of the Newspaper
             </a>
         </strong>
-    </p>
+
 
     <p>
         It was another regular morning back in the 2000s. I woke up early, earlier than everybody else at home. I felt a sense of pride. My summer vacations had started and I was happy.
-    </p>
+    </p></div>
 <br>
+       <div class="project-card">
         <p>
         <strong>
             <a href="https://abhibolega.substack.com/p/a-satire" target="_blank">
@@ -656,7 +681,7 @@ footer i {
         तो देखो ऐसा है कि,
 जो भारत में सब कुछ कंट्रोल करते हैं
 वो हैं नेता, और वो नेता हैं तो उनका चलता है |
-    </p>
+    </p></div>
 
 </section>
 <br>
@@ -1047,6 +1072,41 @@ document.documentElement.style.setProperty(
         Math.floor(Math.random() * gradients.length)
     ]
 );
+
+const sections =
+    document.querySelectorAll("section");
+
+const navLinks =
+    document.querySelectorAll(".nav-menu a[href^='#']");
+
+window.addEventListener("scroll", () => {
+
+    let current = "";
+
+    sections.forEach(section => {
+
+        const sectionTop =
+            section.offsetTop - 120;
+
+        if (window.scrollY >= sectionTop) {
+
+            current = section.id;
+        }
+    });
+
+    navLinks.forEach(link => {
+
+        link.classList.remove("active");
+
+        if (
+            link.getAttribute("href") ===
+            "#" + current
+        ) {
+
+            link.classList.add("active");
+        }
+    });
+});
 
     </script>
     
