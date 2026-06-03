@@ -32,6 +32,34 @@
         }
     
         :root {
+
+            --dark-bg:
+    radial-gradient(
+        circle at top left,
+        rgba(96,165,250,0.16),
+        transparent 50%
+    ),
+    radial-gradient(
+        circle at center left,
+        rgba(59,130,246,0.10),
+        transparent 45%
+    ),
+    radial-gradient(
+        circle at top right,
+        rgba(147,51,234,0.14),
+        transparent 40%
+    ),
+    radial-gradient(
+        circle at bottom right,
+        rgba(139,92,246,0.12),
+        transparent 45%
+    ),
+    radial-gradient(
+        circle at center right,
+        rgba(34,197,94,0.07),
+        transparent 30%
+    ),
+    #0f1b2d;
     
             --bg: #eaf4ff;
             --card-bg: #f4f9ff;
@@ -47,7 +75,14 @@
     
         body.dark {
 
-    --bg:
+    --bg: var(--dark-bg);
+
+    --card-bg: #162338;
+    --text: #dbeafe;
+    --heading: #ffffff;
+    --accent: #7db7ff;
+    --border: #2b3d59;        
+
         radial-gradient(
             circle at top left,
             rgba(96, 165, 250, 0.16),
@@ -255,7 +290,6 @@
     white-space: nowrap;
     letter-spacing: 1px;
 }
-
 
     
         .subtitle {
@@ -484,6 +518,24 @@ footer i {
     color: var(--accent);
     margin-right: 4px;
 }
+
+#progress-bar {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 0%;
+
+    height: 3px;
+
+    background: var(--accent);
+
+    z-index: 9999;
+
+    transition: width 0.1s linear;
+}
     
     </style>
     
@@ -491,6 +543,8 @@ footer i {
     </head>
     
     <body>
+
+        <div id="progress-bar"></div>
 
     <nav class="navbar">
 
@@ -502,27 +556,27 @@ footer i {
 
         <a href="#intro">
     <i class="fas fa-user"></i>
-    Introduction
+     &nbsp About
 </a>
 
 <a href="#projects">
-    <i class="fas fa-flask"></i>
+    <i class="fas fa-flask"></i>&nbsp
     Featured Projects
 </a>
 
 <a href="#literature" style="font-family: khand;">
-    <i class="fas fa-feather-pointed"></i>
+    <i class="fas fa-feather"></i>
     khayal-e-abhibolega
 </a>
 
 <a href="#misc">
-    <i class="fas fa-book"></i>
+    <i class="fas fa-book"></i>&nbsp
     Misc
 </a>
 
 <a href="https://abhibolega.substack.com"
    target="_blank">
-    <i class="fas fa-arrow-up-right-from-square"></i>
+    <i class="fas fa-arrow-up-right-from-square"></i>&nbsp
     Blog
 </a>
 
@@ -581,7 +635,10 @@ footer i {
     
     <section id="projects">
     <hr class="footer-divider"> <br>
-    <h2 style="text-align: left;">Featured Project(s)</h2>
+    <h2 style="text-align: left;">
+    <i class="fas fa-flask"></i>
+    Featured Projects
+</h2>
 
     <p>
         <strong>
@@ -613,7 +670,7 @@ footer i {
   
     <section id="literature">
     <hr class="footer-divider"> <br>
-    <h2 style="text-align: left; font-family: khand;"" >khayal-e-abhibolega</h2>
+    <h2 style="text-align: left; font-family: khand;"" > <i class="fas fa-feather"></i> khayal-e-abhibolega</h2>
 
     <p>
         <strong>
@@ -938,6 +995,98 @@ fetch("https://ipwho.is/")
         updateFooterClock();
     });
 
+    window.addEventListener("scroll", () => {
+
+    const scrollTop =
+        document.documentElement.scrollTop;
+
+    const scrollHeight =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+
+    const progress =
+        (scrollTop / scrollHeight) * 100;
+
+    document.getElementById("progress-bar")
+        .style.width = progress + "%";
+});
+
+const gradients = [
+
+`
+radial-gradient(
+    circle at top left,
+    rgba(96,165,250,0.16),
+    transparent 50%
+),
+radial-gradient(
+    circle at center left,
+    rgba(59,130,246,0.10),
+    transparent 45%
+),
+radial-gradient(
+    circle at top right,
+    rgba(147,51,234,0.14),
+    transparent 40%
+),
+radial-gradient(
+    circle at bottom right,
+    rgba(139,92,246,0.12),
+    transparent 45%
+),
+radial-gradient(
+    circle at center right,
+    rgba(34,197,94,0.07),
+    transparent 30%
+),
+#0f1b2d
+`,
+
+`
+radial-gradient(
+    circle at top left,
+    rgba(125,183,255,0.14),
+    transparent 55%
+),
+radial-gradient(
+    circle at bottom left,
+    rgba(34,197,94,0.10),
+    transparent 40%
+),
+radial-gradient(
+    circle at top right,
+    rgba(168,85,247,0.18),
+    transparent 45%
+),
+#0f1b2d
+`,
+
+`
+radial-gradient(
+    circle at top center,
+    rgba(59,130,246,0.18),
+    transparent 55%
+),
+radial-gradient(
+    circle at bottom right,
+    rgba(147,51,234,0.16),
+    transparent 45%
+),
+radial-gradient(
+    circle at bottom left,
+    rgba(34,197,94,0.08),
+    transparent 35%
+),
+#0f1b2d
+`
+];
+
+document.documentElement.style.setProperty(
+    "--dark-bg",
+    gradients[
+        Math.floor(Math.random() * gradients.length)
+    ]
+);
 
     </script>
     
