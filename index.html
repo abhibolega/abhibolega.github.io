@@ -1,761 +1,699 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Abhinav Mishra</title>
-    
-    <meta name="description" content="Engineer • Learner • Musician (wannabe)">
-    
+
+    <meta
+      name="description"
+      content="Engineer • Learner • Musician (wannabe)"
+    />
+
     <!-- Open Graph -->
-    <meta property="og:title" content="Abhinav Mishra">
-    <meta property="og:description" content="Engineer • Learner • Musician (wannabe)">
-    <meta property="og:image" content="assets/dp.jpg">
-    <meta property="og:type" content="website">
-    
-    <link rel="icon" type="image/x-icon" href="assets/favicon.png">
-    
+    <meta property="og:title" content="Abhinav Mishra" />
+    <meta
+      property="og:description"
+      content="Engineer • Learner • Musician (wannabe)"
+    />
+    <meta property="og:image" content="assets/dp.jpg" />
+    <meta property="og:type" content="website" />
+
+    <link rel="icon" type="image/x-icon" href="assets/favicon.png" />
+
     <!-- Font Awesome -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
     <style>
-    
-        @font-face {
-            font-family: "Khand";
-            src: url("assets/khand.ttf") format("truetype");
-            font-weight: normal;
-            font-style: normal;
-        }
-    
-        :root {
+      @font-face {
+        font-family: "Khand";
+        src: url("assets/khand.ttf") format("truetype");
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      :root {
+        --dark-bg: radial-gradient(
+            circle at top left,
+            rgba(96, 165, 250, 0.16),
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at center left,
+            rgba(59, 130, 246, 0.1),
+            transparent 45%
+          ),
+          radial-gradient(
+            circle at top right,
+            rgba(147, 51, 234, 0.14),
+            transparent 40%
+          ),
+          radial-gradient(
+            circle at bottom right,
+            rgba(139, 92, 246, 0.12),
+            transparent 45%
+          ),
+          radial-gradient(
+            circle at center right,
+            rgba(34, 197, 94, 0.07),
+            transparent 30%
+          ),
+          #0f1b2d;
+
+        --bg: #eaf4ff;
+        --card-bg: #f4f9ff;
+        --text: #1e293b;
+        --heading: #0f172a;
+        --accent: #2563eb;
+        --border: #d3e4f8;
+
+        --content-width: 720px;
+
+        --transition-speed: 0.25s;
+      }
+
+      body.dark {
+        --bg: var(--dark-bg);
+        --card-bg: #162338;
+        --text: #dbeafe;
+        --heading: #ffffff;
+        --accent: #7db7ff;
+        --border: #2b3d59;
+      }
+
+      .nav-menu a.active {
+        background: rgba(125, 183, 255, 0.12);
+        color: var(--accent);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+
+        background: var(--bg);
+        color: var(--text);
+
+        font-family: "Segoe UI", sans-serif;
+        line-height: 1.8;
+
+        transition: background var(--transition-speed),
+          color var(--transition-speed);
+      }
+
+      .navbar {
+        position: fixed;
 
-            --dark-bg:
-    radial-gradient(
-        circle at top left,
-        rgba(96,165,250,0.16),
-        transparent 50%
-    ),
-    radial-gradient(
-        circle at center left,
-        rgba(59,130,246,0.10),
-        transparent 45%
-    ),
-    radial-gradient(
-        circle at top right,
-        rgba(147,51,234,0.14),
-        transparent 40%
-    ),
-    radial-gradient(
-        circle at bottom right,
-        rgba(139,92,246,0.12),
-        transparent 45%
-    ),
-    radial-gradient(
-        circle at center right,
-        rgba(34,197,94,0.07),
-        transparent 30%
-    ),
-    #0f1b2d;
-    
-            --bg: #eaf4ff;
-            --card-bg: #f4f9ff;
-            --text: #1e293b;
-            --heading: #0f172a;
-            --accent: #2563eb;
-            --border: #d3e4f8;
-    
-            --content-width: 720px;
-    
-            --transition-speed: 0.25s;
-        }
-    
-        body.dark {
-            --bg: var(--dark-bg);
-            --card-bg: #162338;
-            --text: #dbeafe;
-            --heading: #ffffff;
-            --accent: #7db7ff;
-            --border: #2b3d59;
-        }
-
-        .nav-menu a.active {
-
-    background: rgba(125,183,255,0.12);
-    color: var(--accent);
-}
-    
-        * {
-            box-sizing: border-box;
-        }
-    
-        html {
-            scroll-behavior: smooth;
-        }
-    
-        body {
-    
-            margin: 0;
-            padding: 0;
-    
-            background: var(--bg);
-            color: var(--text);
-    
-            font-family: "Segoe UI", sans-serif;
-            line-height: 1.8;
-    
-            transition:
-                background var(--transition-speed),
-                color var(--transition-speed);
-        }
-
-    .navbar {
-
-position: fixed;
-
-top: 2rem;
-
-left: calc(50% - (var(--content-width) / 2) + 1.5rem);
-
-z-index: 1000;
-}
-
-#menu-toggle {
-
-    width: 44px;
-    height: 44px;
-
-    border: 1px solid var(--border);
-    border-radius: 50%;
-
-    background: var(--card-bg);
-    color: var(--text);
-
-    cursor: pointer;
-
-    font-size: 1rem;
-
-    transition: 0.2s ease;
-}
-
-#menu-toggle:hover {
-
-    transform: scale(1.05);
-}
-
-.nav-menu {
-
-    position: absolute;
-    top: 55px;
-    left: 0;
-
-    display: none;
-    flex-direction: column;
-
-    min-width: 260px;
-
-    padding: 0.5rem;
-
-    border: 1px solid var(--border);
-    border-radius: 12px;
-
-    background: var(--card-bg);
-
-    backdrop-filter: blur(10px);
-
-    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-}
-
-.nav-menu.show {
-
-    display: flex;
-}
-
-.nav-menu a {
-
-    padding: 0.8rem 1rem;
-
-    color: var(--text);
-
-    text-decoration: none;
-
-    border-radius: 8px;
-}
-
-.nav-menu a:hover {
-
-    background: rgba(255,255,255,0.08);
-    text-decoration: none;
-}
-    
-        .container {
-    
-            max-width: var(--content-width);
-            margin: auto;
-            padding: 2rem 1.5rem 4rem;
-        }
-    
-        .top-bar {
-    
-            display: flex;
-            justify-content: flex-end;
-            margin-bottom: 1rem;
-        }
-    
-        #theme-toggle {
-    
-            border: 1px solid var(--border);
-            background: transparent;
-            color: var(--text);
-    
-            width: 44px;
-            height: 44px;
-    
-            border-radius: 50%;
-            cursor: pointer;
-    
-            font-size: 1rem;
-    
-            transition: all 0.2s ease;
-        }
-    
-        #theme-toggle:hover {
-            transform: scale(1.05);
-        }
-    
-        .hero {
-    
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-    
-        .profile-image {
-    
-            width: 180px;
-            height: 180px;
-    
-            object-fit: cover;
-            border-radius: 50%;
-    
-            border: 3px solid var(--border);
-            
-        }
-
-        body.dark .profile-image {
-
-    box-shadow:
-        0 0 30px rgba(125, 183, 255, 0.15);
-}
-    
-        h1 {
-    font-family: "Khand", sans-serif;
-    font-size: clamp(2.2rem, 8vw, 4rem);
-    white-space: nowrap;
-    letter-spacing: 1px;
-}
-
-    
-        .subtitle {
-    
-            margin-top: -10px;
-            margin-bottom: -20px;
-            font-size: 1.1rem;
-            opacity: 0.8;
-        }
-    
-        section {
-    
-            margin-top: 2.25rem;
-        }
-    
-        h2 {
-    
-            text-align: center;
-            font-size: 1.2rem;
-            color: var(--heading);
-    
-            margin-bottom: 1rem;
-        }
-    
-        p {
-    
-            margin-bottom: 1rem;
-        }
-    
-        a {
-    
-            color: var(--accent);
-            text-decoration: none;
-        }
-    
-        a:hover {
-    
-            text-decoration: underline;
-        }
-    
-        .inline-list {
-    
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 0.75rem;
-    
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-    
-        .inline-list li {
-    
-            margin: 0;
-        }
-    
-        .inline-list a,
-        .inline-list span {
-    
-            display: inline-block;
-    
-            padding: 0.4rem 0.8rem;
-    
-            border: 1px solid var(--border);
-            border-radius: 999px;
-    
-            color: var(--text);
-        }
-
-        .music-player {
-
-text-align: center;
-}
-
-.music-button {
-
-display: inline-flex;
-align-items: center;
-gap: 0.6rem;
-
-padding: 0.85rem 1.5rem;
-
-border: 1px solid var(--border);
-border-radius: 999px;
-
-color: var(--text);
-
-transition: all 0.2s ease;
-}
-
-.music-button:hover {
-
-text-decoration: none;
-transform: translateY(-1px);
-}
-
-
-.reading-section {
-
-text-align: center;
-}
-
-.reading-button {
-
-display: inline-flex;
-align-items: center;
-gap: 0.6rem;
-
-padding: 0.85rem 1.5rem;
-
-border: 1px solid var(--border);
-border-radius: 999px;
-
-color: var(--text);
-
-transition: all 0.2s ease;
-}
-
-.reading-button:hover {
-
-text-decoration: none;
-transform: translateY(-1px);
-}
-    
-.footer-links {
-
-    text-align: center;
-    font-weight: bold;
-    margin-top: 0.75rem;
-    font-size: 0.85rem;
-    opacity: 0.7;
-}
-
-.footer-links a {
-
-     color: rgba(255,255,255,0.65);
-
-    text-decoration: none;
-
-    cursor: default;
-}
-
-.footer-links a:hover,
-.footer-links a:active,
-.footer-links a:focus,
-.footer-links a:visited {
-
-    color: white;
-
-    text-decoration: none;
-}
-        .socials {
-    
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-    
-            margin-top: 2rem;
-        }
-    
-        .social-link {
-
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-
-    padding: 0.5rem 0.9rem;
-
-    border: 1px solid var(--border);
-    border-radius: 999px;
-
-    color: var(--text);
-
-    transition: all 0.2s ease;
-}
-
-.social-link i {
-    color: var(--accent);
-}
-
-.social-link:hover {
-
-    text-decoration: none;
-    transform: translateY(-1px);
-}
-
-body.dark .social-link:hover {
-    background: rgba(125, 183, 255, 0.08);
-}
-
-body:not(.dark) .social-link:hover {
-    background: rgba(37, 99, 235, 0.06);
-}
-    
-        .footer-divider {
-
-            margin: 2rem auto 1rem;
-    
-            border: none;
-            border-top: 2px solid var(--border);
-        }
-    
-        footer {
-
-            text-align: center;
-            font-size: 0.9rem;
-            opacity: 0.7;
-            
-        }
-    
-        @media (max-width: 1080px) {
-
-            .navbar {
-
-        left: 1.5rem;
         top: 2rem;
-    }
 
-    .profile-image {
-        width: 120px;
-        height: 120px;
-    }
+        left: calc(50% - (var(--content-width) / 2) + 1.5rem);
 
-    .subtitle {
+        z-index: 1000;
+      }
+
+      #menu-toggle {
+        width: 44px;
+        height: 44px;
+
+        border: 1px solid var(--border);
+        border-radius: 50%;
+
+        background: var(--card-bg);
+        color: var(--text);
+
+        cursor: pointer;
+
         font-size: 1rem;
-    }
-            
-    .socials {
 
-        justify-content: center;
-        gap: 0.75rem;
-    }
+        transition: 0.2s ease;
+      }
 
-    .social-link {
+      #menu-toggle:hover {
+        transform: scale(1.05);
+      }
+
+      .nav-menu {
+        position: absolute;
+        top: 55px;
+        left: 0;
+
+        display: none;
+        flex-direction: column;
+
+        min-width: 260px;
+
+        padding: 0.5rem;
+
+        border: 1px solid var(--border);
+        border-radius: 12px;
+
+        background: var(--card-bg);
+
+        backdrop-filter: blur(10px);
+
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+      }
+
+      .nav-menu.show {
+        display: flex;
+      }
+
+      .nav-menu a {
+        padding: 0.8rem 1rem;
+
+        color: var(--text);
+
+        text-decoration: none;
+
+        border-radius: 8px;
+      }
+
+      .nav-menu a:hover {
+        background: rgba(255, 255, 255, 0.08);
+        text-decoration: none;
+      }
+
+      .container {
+        max-width: var(--content-width);
+        margin: auto;
+        padding: 2rem 1.5rem 4rem;
+      }
+
+      .top-bar {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 1rem;
+      }
+
+      #theme-toggle {
+        border: 1px solid var(--border);
+        background: transparent;
+        color: var(--text);
 
         width: 44px;
         height: 44px;
 
-        padding: 0;
+        border-radius: 50%;
+        cursor: pointer;
 
+        font-size: 1rem;
+
+        transition: all 0.2s ease;
+      }
+
+      #theme-toggle:hover {
+        transform: scale(1.05);
+      }
+
+      .hero {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .profile-image {
+        width: 180px;
+        height: 180px;
+
+        object-fit: cover;
+        border-radius: 50%;
+
+        border: 3px solid var(--border);
+      }
+
+      body.dark .profile-image {
+        box-shadow: 0 0 30px rgba(125, 183, 255, 0.15);
+      }
+
+      h1 {
+        font-family: "Khand", sans-serif;
+        font-size: clamp(2.2rem, 8vw, 4rem);
+        white-space: nowrap;
+        letter-spacing: 1px;
+      }
+
+      .subtitle {
+        margin-top: -10px;
+        margin-bottom: -20px;
+        font-size: 1.1rem;
+        opacity: 0.8;
+      }
+
+      section {
+        margin-top: 2.25rem;
+      }
+
+      h2 {
+        text-align: center;
+        font-size: 1.2rem;
+        color: var(--heading);
+
+        margin-bottom: 1rem;
+      }
+
+      p {
+        margin-bottom: 1rem;
+      }
+
+      a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      .inline-list {
+        display: flex;
+        flex-wrap: wrap;
         justify-content: center;
-    }
+        gap: 0.75rem;
 
-    .social-link span {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
 
-        display: none;
-    }
+      .inline-list li {
+        margin: 0;
+      }
 
-}
+      .inline-list a,
+      .inline-list span {
+        display: inline-block;
 
-.project-card {
+        padding: 0.4rem 0.8rem;
 
-    padding: 1rem 1.25rem;
+        border: 1px solid var(--border);
+        border-radius: 999px;
 
-    border: 1px solid var(--border);
-    border-radius: 14px;
+        color: var(--text);
+      }
 
-    margin-bottom: 1.25rem;
+      .music-player {
+        text-align: center;
+      }
 
-    transition: 0.2s ease;
-}
+      .music-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
 
-.project-card:hover {
+        padding: 0.85rem 1.5rem;
 
-    transform: translateY(-2px);
-}
+        border: 1px solid var(--border);
+        border-radius: 999px;
 
-footer i {
-    color: var(--accent);
-    margin-right: 4px;
-}
+        color: var(--text);
 
-#progress-bar {
+        transition: all 0.2s ease;
+      }
 
-    position: fixed;
+      .music-button:hover {
+        text-decoration: none;
+        transform: translateY(-1px);
+      }
 
-    top: 0;
-    left: 0;
+      .reading-section {
+        text-align: center;
+      }
 
-    width: 0%;
+      .reading-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
 
-    height: 3px;
+        padding: 0.85rem 1.5rem;
 
-    background: var(--accent);
+        border: 1px solid var(--border);
+        border-radius: 999px;
 
-    z-index: 9999;
+        color: var(--text);
 
-    transition: width 0.1s linear;
-}
-    
+        transition: all 0.2s ease;
+      }
+
+      .reading-button:hover {
+        text-decoration: none;
+        transform: translateY(-1px);
+      }
+
+      .footer-links {
+        text-align: center;
+        font-weight: bold;
+        margin-top: 0.75rem;
+        font-size: 0.85rem;
+        opacity: 0.7;
+      }
+
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.65);
+
+        text-decoration: none;
+
+        cursor: default;
+      }
+
+      .footer-links a:hover,
+      .footer-links a:active,
+      .footer-links a:focus,
+      .footer-links a:visited {
+        color: white;
+
+        text-decoration: none;
+      }
+      .socials {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+
+        margin-top: 2rem;
+      }
+
+      .social-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+
+        padding: 0.5rem 0.9rem;
+
+        border: 1px solid var(--border);
+        border-radius: 999px;
+
+        color: var(--text);
+
+        transition: all 0.2s ease;
+      }
+
+      .social-link i {
+        color: var(--accent);
+      }
+
+      .social-link:hover {
+        text-decoration: none;
+        transform: translateY(-1px);
+      }
+
+      body.dark .social-link:hover {
+        background: rgba(125, 183, 255, 0.08);
+      }
+
+      body:not(.dark) .social-link:hover {
+        background: rgba(37, 99, 235, 0.06);
+      }
+
+      .footer-divider {
+        margin: 2rem auto 1rem;
+
+        border: none;
+        border-top: 2px solid var(--border);
+      }
+
+      footer {
+        text-align: center;
+        font-size: 0.9rem;
+        opacity: 0.7;
+      }
+
+      @media (max-width: 1080px) {
+        .navbar {
+          left: 1.5rem;
+          top: 2rem;
+        }
+
+        .profile-image {
+          width: 120px;
+          height: 120px;
+        }
+
+        .subtitle {
+          font-size: 1rem;
+        }
+
+        .socials {
+          justify-content: center;
+          gap: 0.75rem;
+        }
+
+        .social-link {
+          width: 44px;
+          height: 44px;
+
+          padding: 0;
+
+          justify-content: center;
+        }
+
+        .social-link span {
+          display: none;
+        }
+      }
+
+      .project-card {
+        padding: 1rem 1.25rem;
+
+        border: 1px solid var(--border);
+        border-radius: 14px;
+
+        margin-bottom: 1.25rem;
+
+        transition: 0.2s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-2px);
+      }
+
+      footer i {
+        color: var(--accent);
+        margin-right: 4px;
+      }
+
+      #progress-bar {
+        position: fixed;
+
+        top: 0;
+        left: 0;
+
+        width: 0%;
+
+        height: 3px;
+
+        background: var(--accent);
+
+        z-index: 9999;
+
+        transition: width 0.1s linear;
+      }
     </style>
-    
-    
-    </head>
-    
-    <body>
+  </head>
 
-        <div id="progress-bar"></div>
+  <body>
+    <div id="progress-bar"></div>
 
     <nav class="navbar">
-
-    <button id="menu-toggle" aria-label="Menu">
+      <button id="menu-toggle" aria-label="Menu">
         <i class="fas fa-bars"></i>
-    </button>
+      </button>
 
-    <div class="nav-menu" id="nav-menu">
-
+      <div class="nav-menu" id="nav-menu">
         <a href="#intro">
-    <i class="fas fa-user"></i>
-     &nbsp About
-</a>
+          <i class="fas fa-user"></i>
+          &nbsp About
+        </a>
 
-<a href="#projects">
-    <i class="fas fa-flask"></i>&nbsp
-    Featured Projects
-</a>
+        <a href="#projects">
+          <i class="fas fa-flask"></i>&nbsp Featured Projects
+        </a>
 
-<a href="#literature" style="font-family: khand;">
-    <i class="fas fa-feather"></i>
-    khayal-e-abhibolega
-</a>
+        <a href="#literature" style="font-family: khand">
+          <i class="fas fa-feather"></i>
+          khayal-e-abhibolega
+        </a>
 
-<a href="#misc">
-    <i class="fas fa-book"></i>&nbsp
-    Misc
-</a>
+        <a href="#misc"> <i class="fas fa-book"></i>&nbsp Misc </a>
 
-<a href="https://abhibolega.substack.com"
-   target="_blank">
-    <i class="fas fa-arrow-up-right-from-square"></i>&nbsp
-    Blog
-</a>
-
-    </div>
-
-</nav>
+        <a href="https://abhibolega.substack.com" target="_blank">
+          <i class="fas fa-arrow-up-right-from-square"></i>&nbsp Blog
+        </a>
+      </div>
+    </nav>
 
     <div class="container">
-    
-    
-    <div class="top-bar">
+      <div class="top-bar">
         <button id="theme-toggle" aria-label="Toggle Theme">
-            <i class="fas fa-moon"></i>
+          <i class="fas fa-moon"></i>
         </button>
-    </div>
-    
-    <header class="hero">
-    
-        <img
-            src="assets/dp.jpg"
-            alt="Abhinav Mishra"
-            class="profile-image"
-        >
-    
+      </div>
+
+      <header class="hero">
+        <img src="assets/dp.jpg" alt="Abhinav Mishra" class="profile-image" />
+
         <h1>Abhinav Mishra</h1>
-    
-        <div class="subtitle" id="dynamic-subtitle">
-    Loading...
-</div>
-    
-    </header>
-    
-    <section id="intro">
-    
-        <p>
-            Hi, I'm an engineer based in Maharashtra, India and associated with the chemical manufacturing sector. I currently work in the Business Excellence domain. Previously, I have worked in Production and Process Engineering roles.
-        </p>
-    
-        <p>
-            I completed my Engineering degree from Thapar Institute of Engineering and Technology, Patiala and am currently pursuing an ESG certification through Symbiosis Centre for Distance Learning.
-        </p>
-    
-        <p>
-            Professionally, I am interested in data-driven manufacturing and finding simple ways to improve operations using data that is often already available on the shop floor but remains underutilized. Industrial safety, compliance audits, sustainability, and ESG are some other areas that I enjoy learning about.
-        </p>
-    
-        <p>
-            Outside of work, I like to play the keyboard, ukulele, and kalimba, read, write occasional thoughts on my blog, and spend time playing FIFA and GTA. I am a quizzing enthusiast and have competed at the national level during school.
-        </p>
-    
-        <p>
-            I tend to go down rabbit holes on a wide variety of topics, and would be glad to nerd out sometime :).
-        </p>
-    
-    </section>
-    
-    <section id="projects">
-    <hr class="footer-divider"> <br>
-    <h2 style="text-align: left;">
-    <i class="fas fa-flask"></i>
-    Featured Projects
-</h2>
-<div class="project-card">
 
-        <strong>
-            <a href="https://abhibolega.substack.com/p/turning-shop-floor-data-into-a-maintenance-management-system" target="_blank">
-                Spreadsheet-Based Maintenance Management System
-            </a>
-        </strong>
+        <div class="subtitle" id="dynamic-subtitle">Loading...</div>
+      </header>
 
+      <section id="intro">
+        <p>
+          Hi, I'm an engineer based in Maharashtra, India and associated with
+          the chemical manufacturing sector. I currently work in the Business
+          Excellence domain. Previously, I have worked in Production and Process
+          Engineering roles.
+        </p>
 
-    <p>
-        A maintenance management system built using spreadsheets to track breakdowns,
-            maintenance history, open jobs, and reliability trends using existing shop-floor data.
-    </p>
-</div>
-<br>
+        <p>
+          I completed my Engineering degree from Thapar Institute of Engineering
+          and Technology, Patiala and am currently pursuing an ESG certification
+          through Symbiosis Centre for Distance Learning.
+        </p>
+
+        <p>
+          Professionally, I am interested in data-driven manufacturing and
+          finding simple ways to improve operations using data that is often
+          already available on the shop floor but remains underutilized.
+          Industrial safety, compliance audits, sustainability, and ESG are some
+          other areas that I enjoy learning about.
+        </p>
+
+        <p>
+          Outside of work, I like to play the keyboard, ukulele, and kalimba,
+          read, write occasional thoughts on my blog about random stuff and mostly sports, 
+          and spend time playing FIFA and GTA. I am a quizzing enthusiast and have competed
+          at the national level during school.
+        </p>
+
+        <p>
+          I tend to go down rabbit holes on a wide variety of topics, and would
+          be glad to nerd out sometime.
+        </p>
+      </section>
+
+      <section id="projects">
+        <hr class="footer-divider" />
+        <br />
+        <h2 style="text-align: left">
+          <i class="fas fa-flask"></i>
+          Featured Projects
+        </h2>
         <div class="project-card">
-        <strong>
-            <a href="https://abhibolega.substack.com/p/turning-procurement-records-into-an-inventory-planning-tool" target="_blank">
-                Procurement Lead-Time & Inventory Planning System
-            </a>
-        </strong>
-
-
-    <p>
-        A spreadsheet-based procurement planner built using historical purchase requisition data to track material lead times, maintain procurement records, and support inventory planning through data-driven delivery date estimation.
-    </p>
-</div>
-</section>
-<br>
-  
-    <section id="literature">
-    <hr class="footer-divider"> <br>
-    <h2 style="text-align: left; font-family: khand;"> <i class="fas fa-feather"></i> khayal-e-abhibolega</h2>
-
-           <div class="project-card">
-        <strong>
-            <a href="https://abhibolega.substack.com/p/the-back-side-of-the-newspaper" target="_blank">
-                The Back Side of the Newspaper
-            </a>
-        </strong>
-
-
-    <p>
-        It was another regular morning back in the 2000s. I woke up early, earlier than everybody else at home. I felt a sense of pride. My summer vacations had started and I was happy.
-    </p></div>
-<br>
-       <div class="project-card">
-        <p>
-        <strong>
-            <a href="https://abhibolega.substack.com/p/a-satire" target="_blank">
-                उनका चलता है – A Satire
-            </a>
-        </strong>
-    </p>
-
-    <p>
-        तो देखो ऐसा है कि,
-जो भारत में सब कुछ कंट्रोल करते हैं
-वो हैं नेता, और वो नेता हैं तो उनका चलता है |
-    </p></div>
-
-</section>
-<br>
-    <hr class="footer-divider">
-
-    <section id="misc">
-    
-        <div class="music-player">
-    
-            <a id="random-song"
-               class="music-button"
-               href="#"
-               target="_blank">
-    
-                <i class="fas fa-play"></i>
-                <span id="song-text">
-                    Today's Recommendation
-                </span>
-    
-            </a>
-    
-        </div>
-    
-    </section>
-
-    <section>
-
-
-    
-        <div class="reading-section">
-    
+          <strong>
             <a
-                class="reading-button"
-                href="https://www.amazon.in/Shattered-Lands-Partitions-Making-Modern/dp/9369894624"
-                target="_blank"
-                rel="noopener noreferrer">
-    
-                <i class="fas fa-book-open"></i>
-                Currently Reading: Shattered Lands - Sam Dalrymple
-    
+              href="https://abhibolega.substack.com/p/turning-shop-floor-data-into-a-maintenance-management-system"
+              target="_blank"
+            >
+              Spreadsheet-Based Maintenance Management System
             </a>
-    
+          </strong>
+
+          <p>
+            A maintenance management system built using spreadsheets to track
+            breakdowns, maintenance history, open jobs, and reliability trends
+            using existing shop-floor data.
+          </p>
         </div>
-    
-    </section>
-<!--
+        <br />
+        <div class="project-card">
+          <strong>
+            <a
+              href="https://abhibolega.substack.com/p/turning-procurement-records-into-an-inventory-planning-tool"
+              target="_blank"
+            >
+              Procurement Lead-Time & Inventory Planning System
+            </a>
+          </strong>
+
+          <p>
+            A spreadsheet-based procurement planner built using historical
+            purchase requisition data to track material lead times, maintain
+            procurement records, and support inventory planning through
+            data-driven delivery date estimation.
+          </p>
+        </div>
+      </section>
+      <br />
+
+      <section id="literature">
+        <hr class="footer-divider" />
+        <br />
+        <h2 style="text-align: left; font-family: khand">
+          <i class="fas fa-feather"></i> khayal-e-abhibolega
+        </h2>
+
+        <div class="project-card">
+          <strong>
+            <a
+              href="https://abhibolega.substack.com/p/the-back-side-of-the-newspaper"
+              target="_blank"
+            >
+              The Back Side of the Newspaper
+            </a>
+          </strong>
+
+          <p>
+            It was another regular morning back in the 2000s. I woke up early,
+            earlier than everybody else at home. I felt a sense of pride. My
+            summer vacations had started and I was happy.
+          </p>
+        </div>
+        <br />
+        <div class="project-card">
+          <p>
+            <strong>
+              <a
+                href="https://abhibolega.substack.com/p/a-satire"
+                target="_blank"
+              >
+                उनका चलता है – A Satire
+              </a>
+            </strong>
+          </p>
+
+          <p>
+            तो देखो ऐसा है कि, जो भारत में सब कुछ कंट्रोल करते हैं वो हैं नेता,
+            और वो नेता हैं तो उनका चलता है |
+          </p>
+        </div>
+      </section>
+      <br />
+      <hr class="footer-divider" />
+
+      <section id="misc">
+        <div class="music-player">
+          <a id="random-song" class="music-button" href="#" target="_blank">
+            <i class="fas fa-play"></i>
+            <span id="song-text"> Today's Recommendation </span>
+          </a>
+        </div>
+      </section>
+
+      <section>
+        <div class="reading-section">
+          <a
+            class="reading-button"
+            href="https://www.amazon.in/Shattered-Lands-Partitions-Making-Modern/dp/9369894624"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fas fa-book-open"></i>
+            Currently Reading: Shattered Lands - Sam Dalrymple
+          </a>
+        </div>
+      </section>
+      <!--
     <section>
     
         <h2>Buying Links to my Instruments</h2>
@@ -768,284 +706,268 @@ footer i {
     
     </section>
     
---> 
-    
-    <section>
-    
+-->
+
+      <section>
         <div class="socials">
-    
-            <a class="social-link" href="https://www.linkedin.com/in/abhibolega/" target="_blank">
-                <i class="fab fa-linkedin"></i>
-                <span>LinkedIn</span>
-            </a>
-    
-            <a class="social-link" href="https://www.youtube.com/@abhibolega" target="_blank">
-                <i class="fab fa-youtube"></i>
-                <span>YouTube</span>
-            </a>
-    
-            <a class="social-link" href="https://abhibolega.substack.com/" target="_blank">
-                <i class="fas fa-pen"></i>
-                <span>Blog</span>
-            </a>
-    
-            <a class="social-link" href="mailto:abhibolega@outlook.com">
-                <i class="fas fa-envelope"></i>
-                <span>Email</span>
-            </a>
-    
+          <a
+            class="social-link"
+            href="https://www.linkedin.com/in/abhibolega/"
+            target="_blank"
+          >
+            <i class="fab fa-linkedin"></i>
+            <span>LinkedIn</span>
+          </a>
+
+          <a
+            class="social-link"
+            href="https://www.youtube.com/@abhibolega"
+            target="_blank"
+          >
+            <i class="fab fa-youtube"></i>
+            <span>YouTube</span>
+          </a>
+
+          <a
+            class="social-link"
+            href="https://abhibolega.substack.com/"
+            target="_blank"
+          >
+            <i class="fas fa-pen"></i>
+            <span>Blog</span>
+          </a>
+
+          <a class="social-link" href="mailto:abhibolega@outlook.com">
+            <i class="fas fa-envelope"></i>
+            <span>Email</span>
+          </a>
         </div>
-    
-    </section>
-    
-    <hr class="footer-divider">
-    <br>
-    <footer id="footer-info">
-    Loading...
-</footer><br>
-    <div class="footer-links">
-    <a href="https://abhibolega.github.io/ASSETS/stopwatch.zip" download>
-        rubik's cube stopwatch
-    </a>
-     &nbsp;•&nbsp;
+      </section>
 
-    <a href="https://www.udemy.com/course/microsoft-excel-2013-from-beginner-to-advanced-and-beyond/"
-       target="_blank"
-       rel="noopener noreferrer">
-        learn excel
-    </a>
+      <hr class="footer-divider" />
+      <br />
+      <footer id="footer-info">Loading...</footer>
+      <br />
+      <div class="footer-links">
+        <a href="https://abhibolega.github.io/ASSETS/stopwatch.zip" download>
+          rubik's cube stopwatch
+        </a>
+        &nbsp;•&nbsp;
 
-     &nbsp;•&nbsp;
+        <a
+          href="https://www.udemy.com/course/microsoft-excel-2013-from-beginner-to-advanced-and-beyond/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          learn excel
+        </a>
 
-    <a href="https://abhibolega.substack.com/p/download-link-to-my-chemical-keyboard-shortcut-cheatsheet"
-       target="_blank"
-       rel="noopener noreferrer">
-        keyboard shortcuts
-    </a>
-</div>
-    
+        &nbsp;•&nbsp;
+
+        <a
+          href="https://abhibolega.substack.com/p/download-link-to-my-chemical-keyboard-shortcut-cheatsheet"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          keyboard shortcuts
+        </a>
+      </div>
     </div>
-    
+
     <script>
-    
-        const toggleButton = document.getElementById("theme-toggle");
-        const icon = toggleButton.querySelector("i");
-    
-        function applyTheme(theme) {
-    
-            if (theme === "dark") {
-    
-                document.body.classList.add("dark");
-                icon.className = "fas fa-sun";
-    
-            } else {
-    
-                document.body.classList.remove("dark");
-                icon.className = "fas fa-moon";
-            }
+
+        /* ======== THEME ======= */
+
+      const toggleButton = document.getElementById("theme-toggle");
+      const icon = toggleButton.querySelector("i");
+
+      function applyTheme(theme) {
+        if (theme === "dark") {
+          document.body.classList.add("dark");
+          icon.className = "fas fa-sun";
+        } else {
+          document.body.classList.remove("dark");
+          icon.className = "fas fa-moon";
         }
-    
-        const savedTheme = localStorage.getItem("theme") || "dark";
-    
-        applyTheme(savedTheme);
-    
-        toggleButton.addEventListener("click", () => {
-    
-            const isDark = document.body.classList.contains("dark");
-    
-            const newTheme = isDark ? "light" : "dark";
-    
-            localStorage.setItem("theme", newTheme);
-    
-            applyTheme(newTheme);
+      }
+
+      const savedTheme = localStorage.getItem("theme") || "dark";
+
+      applyTheme(savedTheme);
+
+      toggleButton.addEventListener("click", () => {
+        const isDark = document.body.classList.contains("dark");
+
+        const newTheme = isDark ? "light" : "dark";
+
+        localStorage.setItem("theme", newTheme);
+
+        applyTheme(newTheme);
+      });
+
+        /* ======== MUSIC RECOMMENDATION ======= */
+
+      const songs = [
+        {
+          title: "Choo Lo — The Local Train",
+          url: "https://youtube.com/watch?v=uB5bf7LQPVU",
+        },
+
+        {
+          title: "Giant — Rag'n'Bone Man",
+          url: "https://youtube.com/watch?v=ir6nk2zrMG0",
+        },
+
+        {
+          title: "Raging — Kodaline",
+          url: "https://www.youtube.com/watch?v=ZWyktWYW3ZM",
+        },
+
+        {
+          title: "Stay Together for the Kids — blink182",
+          url: "https://youtu.be/k1BFHYtZlAU?si=UMvC3C0LGPAKy93",
+        },
+
+        {
+          title: "Oh Devil — Electronic Guest",
+          url: "https://youtu.be/1H7NKHrV4_w?si=b7ryQPwD8VPd88Ix",
+        },
+
+        {
+          title: "On Melancholy Hill — Gorillaz",
+          url: "https://youtu.be/04mfKJWDSzI?si=nauqFfV4qZp0GxxR",
+        },
+
+        {
+          title: "Tokyo Nights — Digital Farm Animals",
+          url: "https://youtu.be/T692utQOQvI?si=zZaS3e6E2bbQ6o1f",
+        },
+
+        {
+          title: "OK Not To Be OK — Marshmello",
+          url: "https://youtu.be/wAPlzt2L7wE?si=8NsFL2HvpKtgiLH0",
+        },
+
+        {
+          title: "Noor — Lost Stories",
+          url: "https://youtu.be/f-CBG061wJ8?si=JP0P5Yw506C5UNOB",
+        },
+
+        {
+          title: "Manmohana — Moksher",
+          url: "https://youtu.be/XiDiTsIxjsE?si=58w9Y3CRDEfIYpLE",
+        },
+
+        {
+          title: "Latthey Di Chaadar — Coke Studio",
+          url: "https://youtu.be/SCOKysMnH50?si=Ln_vSEa8dJaD4sUV",
+        },
+
+        {
+          title: "Firestone — Kygo",
+          url: "https://youtu.be/9Sc-ir2UwGU?si=JVi0yfKdNGWLYZKv",
+        },
+      ];
+
+      const selectedSong = songs[Math.floor(Math.random() * songs.length)];
+
+      document.getElementById("random-song").href = selectedSong.url;
+
+      document.getElementById(
+        "song-text"
+      ).textContent = `Today's Music Recommendation: ${selectedSong.title}`;
+
+      const menuToggle = document.getElementById("menu-toggle");
+      const navMenu = document.getElementById("nav-menu");
+
+      menuToggle.addEventListener("click", () => {
+        navMenu.classList.toggle("show");
+      });
+
+      document.querySelectorAll(".nav-menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navMenu.classList.remove("show");
+        });
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) {
+          navMenu.classList.remove("show");
+        }
+      });
+
+        /* ======== FOOTER CLOCK ======= */
+
+      function updateFooterClock() {
+        const now = new Date();
+
+        const istTime = now.toLocaleTimeString("en-IN", {
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+          timeZone: "Asia/Kolkata",
         });
 
-        const songs = [
-    
-    {
-        title: "Choo Lo — The Local Train",
-        url: "https://youtube.com/watch?v=uB5bf7LQPVU"
-    },
-    
-    {
-        title: "Giant — Rag'n'Bone Man",
-        url: "https://youtube.com/watch?v=ir6nk2zrMG0"
-    },
+        const footer = document.getElementById("footer-info");
 
-    {
-        title: "Raging — Kodaline",
-        url: "https://www.youtube.com/watch?v=ZWyktWYW3ZM"
-    },
+        const location = footer.dataset.location || "Somewhere on Earth";
 
-    {
-        title: "Stay Together for the Kids — blink182",
-        url: "https://youtu.be/k1BFHYtZlAU?si=UMvC3C0LGPAKy93"
-    },
+        footer.innerHTML = `<i class="fas fa-earth-asia"></i> ${location} • ${istTime} IST`;
+      }
 
-    {
-        title: "Oh Devil — Electronic Guest",
-        url: "https://youtu.be/1H7NKHrV4_w?si=b7ryQPwD8VPd88Ix"
-    },
+      const footer = document.getElementById("footer-info");
 
-    {
-        title: "On Melancholy Hill — Gorillaz",
-        url: "https://youtu.be/04mfKJWDSzI?si=nauqFfV4qZp0GxxR"
-    },
+      /* default value */
+      footer.dataset.location = "Somewhere on Earth";
 
-    {
-        title: "Tokyo Nights — Digital Farm Animals",
-        url: "https://youtu.be/T692utQOQvI?si=zZaS3e6E2bbQ6o1f"
-    },
+      updateFooterClock();
 
-    {
-        title: "OK Not To Be OK — Marshmello",
-        url: "https://youtu.be/wAPlzt2L7wE?si=8NsFL2HvpKtgiLH0"
-    },
+      setInterval(updateFooterClock, 1000);
 
-    {
-        title: "Noor — Lost Stories",
-        url: "https://youtu.be/f-CBG061wJ8?si=JP0P5Yw506C5UNOB"
-    },
-
-    {
-        title: "Manmohana — Moksher",
-        url: "https://youtu.be/XiDiTsIxjsE?si=58w9Y3CRDEfIYpLE"
-    },
-
-    {
-        title: "Latthey Di Chaadar — Coke Studio",
-        url: "https://youtu.be/SCOKysMnH50?si=Ln_vSEa8dJaD4sUV"
-    },
-
-    {
-        title: "Firestone — Kygo",
-        url: "https://youtu.be/9Sc-ir2UwGU?si=JVi0yfKdNGWLYZKv"
-    }
-
-];
-
-const selectedSong =
-    songs[Math.floor(Math.random() * songs.length)];
-
-document.getElementById("random-song").href =
-    selectedSong.url;
-
-document.getElementById("song-text").textContent =
-    `Today's Music Recommendation: ${selectedSong.title}`;
-    
-    const menuToggle = document.getElementById("menu-toggle");
-const navMenu = document.getElementById("nav-menu");
-
-menuToggle.addEventListener("click", () => {
-
-    navMenu.classList.toggle("show");
-});
-
-document.querySelectorAll(".nav-menu a").forEach(link => {
-
-    link.addEventListener("click", () => {
-
-        navMenu.classList.remove("show");
-    });
-});
-
-document.addEventListener("click", (e) => {
-
-    if (
-        !menuToggle.contains(e.target) &&
-        !navMenu.contains(e.target)
-    ) {
-
-        navMenu.classList.remove("show");
-    }
-});
-
-function updateFooterClock() {
-
-    const now = new Date();
-
-    const istTime = now.toLocaleTimeString(
-        "en-IN",
-        {
-            hour: "2-digit",
-            minute: "2-digit",
-            hour12: false,
-            timeZone: "Asia/Kolkata"
-        }
-    );
-
-    const footer =
-        document.getElementById("footer-info");
-
-    const location =
-        footer.dataset.location ||
-        "Somewhere on Earth";
-
-    footer.innerHTML =
-        `<i class="fas fa-earth-asia"></i> ${location} • ${istTime} IST`;
-}
-
-const footer =
-    document.getElementById("footer-info");
-
-/* default value */
-footer.dataset.location =
-    "Somewhere on Earth";
-
-updateFooterClock();
-
-setInterval(updateFooterClock, 1000);
-
-fetch("https://ipwho.is/")
-    .then(response => response.json())
-    .then(data => {
-
-        if (data.success === false) {
+      fetch("https://ipwho.is/")
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success === false) {
             throw new Error("Location lookup failed");
-        }
+          }
 
-        const city =
-            data.city || "";
+          const city = data.city || "";
 
-        const country =
-            data.country || "";
+          const country = data.country || "";
 
-        footer.dataset.location =
+          footer.dataset.location =
             city && country
-                ? `${city}, ${country}`
-                : country || "Somewhere on Earth";
+              ? `${city}, ${country}`
+              : country || "Somewhere on Earth";
 
-        updateFooterClock();
-    })
-    .catch(error => {
+          updateFooterClock();
+        })
+        .catch((error) => {
+          console.log(error);
 
-        console.log(error);
+          footer.dataset.location = "Somewhere on Earth";
 
-        footer.dataset.location =
-            "Somewhere on Earth";
+          updateFooterClock();
+        });
 
-        updateFooterClock();
-    });
+        /* ======== SCROLL PROGRESS BAR ======= */
 
-    window.addEventListener("scroll", () => {
+      window.addEventListener("scroll", () => {
+        const scrollTop = document.documentElement.scrollTop;
 
-    const scrollTop =
-        document.documentElement.scrollTop;
+        const scrollHeight =
+          document.documentElement.scrollHeight -
+          document.documentElement.clientHeight;
 
-    const scrollHeight =
-        document.documentElement.scrollHeight -
-        document.documentElement.clientHeight;
+        const progress = (scrollTop / scrollHeight) * 100;
 
-    const progress =
-        (scrollTop / scrollHeight) * 100;
+        document.getElementById("progress-bar").style.width = progress + "%";
+      });
 
-    document.getElementById("progress-bar")
-        .style.width = progress + "%";
-});
+        /* ======== RANDOM GRADIENTS ======= */
 
-const gradients = [
-
-`
+      const gradients = [
+        `
 radial-gradient(
     circle at top left,
     rgba(96,165,250,0.16),
@@ -1074,7 +996,7 @@ radial-gradient(
 #0f1b2d
 `,
 
-`
+        `
 radial-gradient(
     circle at top left,
     rgba(125,183,255,0.14),
@@ -1093,7 +1015,7 @@ radial-gradient(
 #0f1b2d
 `,
 
-`
+        `
 radial-gradient(
     circle at top center,
     rgba(59,130,246,0.18),
@@ -1110,155 +1032,115 @@ radial-gradient(
     transparent 35%
 ),
 #0f1b2d
-`
-];
+`,
+      ];
 
-document.documentElement.style.setProperty(
-    "--dark-bg",
-    gradients[
-        Math.floor(Math.random() * gradients.length)
-    ]
-);
+      document.documentElement.style.setProperty(
+        "--dark-bg",
+        gradients[Math.floor(Math.random() * gradients.length)]
+      );
 
-const sections =
-    document.querySelectorAll("section");
+        /* ======== ACTIVE SECTION HIGHLIGHT IN NAVBAR ======= */
 
-const navLinks =
-    document.querySelectorAll(".nav-menu a[href^='#']");
+      const sections = document.querySelectorAll("section");
 
-window.addEventListener("scroll", () => {
+      const navLinks = document.querySelectorAll(".nav-menu a[href^='#']");
 
-    let current = "";
+      window.addEventListener("scroll", () => {
+        let current = "";
 
-    sections.forEach(section => {
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop - 120;
 
-        const sectionTop =
-            section.offsetTop - 120;
-
-        if (window.scrollY >= sectionTop) {
-
+          if (window.scrollY >= sectionTop) {
             current = section.id;
-        }
-    });
+          }
+        });
 
-    navLinks.forEach(link => {
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
 
-        link.classList.remove("active");
-
-        if (
-            link.getAttribute("href") ===
-            "#" + current
-        ) {
-
+          if (link.getAttribute("href") === "#" + current) {
             link.classList.add("active");
-        }
-    });
-});
+          }
+        });
+      });
 
-const permanent = "Engineer";
+        /* ======== VARYING SUBTITLE ======= */
 
-const others = [
+      const permanent = "Engineer";
 
-    "Learner",
-    "Musician",
-    "Quizzer",
-    "Blogger",
-    "Procrastinator",
-    "Day Dreamer",
-    "Easily Bored",
-    "Lazy", 
-    "?????????", 
-    "#&?%*#+%" 
+      const others = [
+        "Learner",
+        "Musician",
+        "Quizzer",
+        "Blogger",
+        "Procrastinator",
+        "Day Dreamer",
+        "Easily Bored",
+        "Lazy",
+        "?????????",
+        "#&?%*#+%",
+      ];
 
-];
+      const subtitle = document.getElementById("dynamic-subtitle");
 
-const subtitle =
-    document.getElementById("dynamic-subtitle");
+      const chars =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&*";
 
-const chars =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@#$%&*";
+      function randomChar() {
+        return chars[Math.floor(Math.random() * chars.length)];
+      }
 
-function randomChar() {
+      function scrambleTo(target, callback) {
+        let frame = 0;
 
-    return chars[
-        Math.floor(Math.random() * chars.length)
-    ];
-}
+        const maxFrames = 12;
 
-function scrambleTo(target, callback) {
+        const interval = setInterval(() => {
+          const progress = frame / maxFrames;
 
-    let frame = 0;
+          const revealCount = Math.floor(target.length * progress);
 
-    const maxFrames = 12;
+          let output = "";
 
-    const interval = setInterval(() => {
-
-        const progress =
-            frame / maxFrames;
-
-        const revealCount =
-            Math.floor(target.length * progress);
-
-        let output = "";
-
-        for (let i = 0; i < target.length; i++) {
-
+          for (let i = 0; i < target.length; i++) {
             if (i < revealCount) {
-
-                output += target[i];
-
+              output += target[i];
             } else if (target[i] === " ") {
-
-                output += " ";
-
+              output += " ";
             } else {
-
-                output += randomChar();
+              output += randomChar();
             }
-        }
+          }
 
-        callback(output);
+          callback(output);
 
-        frame++;
+          frame++;
 
-        if (frame > maxFrames) {
-
+          if (frame > maxFrames) {
             clearInterval(interval);
 
             callback(target);
-        }
+          }
+        }, 40);
+      }
 
-    }, 40);
-}
+      function getRandomTraits() {
+        return [...others].sort(() => Math.random() - 0.5).slice(0, 2);
+      }
 
-function getRandomTraits() {
+      function updateSubtitle() {
+        const traits = getRandomTraits();
 
-    return [...others]
-        .sort(() => Math.random() - 0.5)
-        .slice(0, 2);
-}
+        const targetText = `${permanent} • ${traits[0]} • ${traits[1]}`;
 
-function updateSubtitle() {
+        scrambleTo(targetText, (text) => (subtitle.textContent = text));
+      }
 
-    const traits =
-        getRandomTraits();
+      updateSubtitle();
 
-    const targetText =
-        `${permanent} • ${traits[0]} • ${traits[1]}`;
-
-    scrambleTo(
-        targetText,
-        text => subtitle.textContent = text
-    );
-}
-
-updateSubtitle();
-
-setInterval(updateSubtitle, 5000);
-
+      setInterval(updateSubtitle, 5000);
     </script>
-    
-    </body>
-    </html>
-    
+  </body>
 </html>
