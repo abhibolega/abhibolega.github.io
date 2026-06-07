@@ -12,8 +12,10 @@
       content="Abhinav Mishra is a Chemical Engineer and Business Excellence professional with experience in Production, Process Engineering, Operational Excellence, ESG, data-driven manufacturing, and process improvement."
     />
 
-    <meta name="keywords"
-      content="Abhinav Mishra, Chemical Engineer, Business Excellence, Operations Excellence, ESG, Manufacturing">
+    <meta
+      name="keywords"
+      content="Abhinav Mishra, Chemical Engineer, Business Excellence, Operations Excellence, ESG, Manufacturing"
+    />
 
     <!-- Open Graph -->
     <meta property="og:title" content="Abhinav Mishra" />
@@ -519,10 +521,10 @@
         "sameAs": [
           "https://www.linkedin.com/in/abhibolega/",
           "https://www.youtube.com/@abhibolega",
-          "https://abhibolega.substack.com/", 
-          "https://abhibolega.wordpress.com/", 
-          "https://www.instagram.com/talesbyabhibolega/", 
-          "https://www.instagram.com/abhibolega/", 
+          "https://abhibolega.substack.com/",
+          "https://abhibolega.wordpress.com/",
+          "https://www.instagram.com/talesbyabhibolega/",
+          "https://www.instagram.com/abhibolega/",
           "https://www.x.com/abhibolega"
         ]
       }
@@ -881,96 +883,37 @@
         applyTheme(newTheme);
       });
 
-      /* ======== MUSIC RECOMMENDATION ======= */
+      /* ======== MUSIC RECOMMENDATION ======== */
 
-      const songs = [
-        {
-          title: "Choo Lo — The Local Train",
-          url: "https://youtube.com/watch?v=uB5bf7LQPVU",
-        },
+      fetch("assets/songs.csv")
+        .then((response) => response.text())
+        .then((csv) => {
+          const rows = csv.trim().split("\n");
 
-        {
-          title: "Giant — Rag'n'Bone Man",
-          url: "https://youtube.com/watch?v=ir6nk2zrMG0",
-        },
+          const songs = rows.slice(1).map((row) => {
+            const [title, artist, url] = row.split(",");
 
-        {
-          title: "Raging — Kodaline",
-          url: "https://www.youtube.com/watch?v=ZWyktWYW3ZM",
-        },
+            return {
+              title,
+              artist,
+              url,
+            };
+          });
 
-        {
-          title: "Stay Together for the Kids — blink182",
-          url: "https://youtu.be/k1BFHYtZlAU?si=UMvC3C0LGPAKy93",
-        },
+          const selectedSong = songs[Math.floor(Math.random() * songs.length)];
 
-        {
-          title: "Oh Devil — Electronic Guest",
-          url: "https://youtu.be/1H7NKHrV4_w?si=b7ryQPwD8VPd88Ix",
-        },
+          document.getElementById("random-song").href = selectedSong.url;
 
-        {
-          title: "On Melancholy Hill — Gorillaz",
-          url: "https://youtu.be/04mfKJWDSzI?si=nauqFfV4qZp0GxxR",
-        },
+          document.getElementById(
+            "song-text"
+          ).textContent = `Today's Music Recommendation: ${selectedSong.title} — ${selectedSong.artist}`;
+        })
+        .catch((error) => {
+          console.error("Song list failed to load:", error);
 
-        {
-          title: "Tokyo Nights — Digital Farm Animals",
-          url: "https://youtu.be/T692utQOQvI?si=zZaS3e6E2bbQ6o1f",
-        },
-
-        {
-          title: "OK Not To Be OK — Marshmello",
-          url: "https://youtu.be/wAPlzt2L7wE?si=8NsFL2HvpKtgiLH0",
-        },
-
-        {
-          title: "Noor — Lost Stories",
-          url: "https://youtu.be/f-CBG061wJ8?si=JP0P5Yw506C5UNOB",
-        },
-
-        {
-          title: "Manmohana — Moksher",
-          url: "https://youtu.be/XiDiTsIxjsE?si=58w9Y3CRDEfIYpLE",
-        },
-
-        {
-          title: "Latthey Di Chaadar — Coke Studio",
-          url: "https://youtu.be/SCOKysMnH50?si=Ln_vSEa8dJaD4sUV",
-        },
-
-        {
-          title: "Firestone — Kygo",
-          url: "https://youtu.be/9Sc-ir2UwGU?si=JVi0yfKdNGWLYZKv",
-        },
-      ];
-
-      const selectedSong = songs[Math.floor(Math.random() * songs.length)];
-
-      document.getElementById("random-song").href = selectedSong.url;
-
-      document.getElementById(
-        "song-text"
-      ).textContent = `Today's Music Recommendation: ${selectedSong.title}`;
-
-      const menuToggle = document.getElementById("menu-toggle");
-      const navMenu = document.getElementById("nav-menu");
-
-      menuToggle.addEventListener("click", () => {
-        navMenu.classList.toggle("show");
-      });
-
-      document.querySelectorAll(".nav-menu a").forEach((link) => {
-        link.addEventListener("click", () => {
-          navMenu.classList.remove("show");
+          document.getElementById("song-text").textContent =
+            "Music recommendation unavailable";
         });
-      });
-
-      document.addEventListener("click", (e) => {
-        if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) {
-          navMenu.classList.remove("show");
-        }
-      });
 
       /* ======== FOOTER CLOCK ======= */
 
