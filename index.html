@@ -582,37 +582,59 @@
       </header>
 
       <section id="intro">
+        <p>Hi, I'm Abhinav, an Engineer based in Maharashtra, India.</p>
         <p>
-          Hi, I'm an engineer based in Maharashtra, India and associated with
-          the chemical manufacturing sector. I currently work in the Business
-          Excellence domain. Previously, I have worked in Production and Process
-          Engineering roles.
+          I currently work in the Business Excellence domain within the chemical
+          manufacturing sector. Over the years, I have worked across Production,
+          Process Engineering, and Operations Excellence functions, which has
+          given me exposure to both day-to-day plant operations and process
+          improvement initiatives.
         </p>
-
         <p>
-          I completed my Engineering degree from Thapar Institute of Engineering
-          and Technology, Patiala and am currently pursuing an ESG certification
-          through Symbiosis Centre for Distance Learning.
+          I graduated from Thapar Institute of Engineering and Technology,
+          Patiala, and am currently pursuing an ESG certification through
+          Symbiosis Centre for Distance Learning.
         </p>
-
+        <h2 style="text-align: left">What I Work On</h2>
         <p>
-          Professionally, I am interested in data-driven manufacturing and
-          finding simple ways to improve operations using data that is often
-          already available on the shop floor but remains underutilized.
-          Industrial safety, compliance audits, sustainability, and ESG are some
-          other areas that I enjoy learning about.
+          My professional interests lie at the intersection of manufacturing,
+          data, and continuous improvement.
         </p>
-
         <p>
-          Outside of work, I like to play the keyboard, ukulele, and kalimba,
-          read, write occasional thoughts on my blog about random stuff and
-          mostly sports, and spend time playing FIFA and GTA. I am a quizzing
-          enthusiast and have competed at the national level during school.
+          I enjoy finding practical ways to improve industrial operations using
+          data that is often already available but underutilized. Whether it is
+          production records, maintenance logs, procurement data, or process
+          parameters, I find it fascinating how simple analysis can uncover
+          opportunities for better decision-making.
         </p>
-
+        <h2 style="text-align: left">Outside Work</h2>
         <p>
-          I tend to go down rabbit holes on a wide variety of topics, and would
-          be glad to nerd out sometime.
+          Away from work, I spend my time exploring a variety of unrelated
+          interests.
+        </p>
+        <p>
+          I play the keyboard, ukulele, and kalimba, write occasional essays and
+          observations on my blog, follow sports far more closely than I
+          probably should, and occasionally revisit video games that I should
+          have probably outgrown by now.
+        </p>
+        <p>
+          I have also been a quizzing enthusiast since school and had the
+          opportunity to compete at the national level during my student years.
+        </p>
+        <h2 style="text-align: left">Curiosity Department</h2>
+        <p>
+          I have a tendency to disappear into rabbit holes on topics that catch
+          my attention.
+        </p>
+        <p>
+          One week it might be smart manufacturing. The next week it could be
+          world history, cricket statistics, literature, public transport
+          systems, or something completely unrelated.
+        </p>
+        <p>
+          If you're someone who enjoys learning for the sake of learning, we'll
+          probably find something interesting to talk about.
         </p>
       </section>
 
@@ -854,6 +876,28 @@
     </div>
 
     <script>
+      
+      /* ======== NAVIGATION MENU ======== */
+
+      const menuToggle = document.getElementById("menu-toggle");
+      const navMenu = document.getElementById("nav-menu");
+
+      menuToggle.addEventListener("click", () => {
+        navMenu.classList.toggle("show");
+      });
+
+      document.querySelectorAll(".nav-menu a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navMenu.classList.remove("show");
+        });
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) {
+          navMenu.classList.remove("show");
+        }
+      });
+
       /* ======== THEME ======= */
 
       const toggleButton = document.getElementById("theme-toggle");
