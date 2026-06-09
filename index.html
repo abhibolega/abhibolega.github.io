@@ -1348,7 +1348,7 @@ radial-gradient(
             resultContainer.innerHTML = "";
             optionsContainer.innerHTML = "";
 
-            const quiz = getRandomQuiz(quizzes);
+            const quiz = getQuizDeck(quizzes);
 
             questionElement.textContent = quiz.question;
 
@@ -1412,29 +1412,24 @@ radial-gradient(
           document.getElementById("quiz-question").textContent =
             "Quiz unavailable.";
         });
-      function getRandomQuiz(quizzes) {
-        const history = JSON.parse(localStorage.getItem("quizHistory")) || [];
+      function getQuizDeck(quizzes) {
+        let deck = JSON.parse(localStorage.getItem("quizDeck"));
 
-        let available = quizzes.filter((_, index) => !history.includes(index));
+        if (!deck || deck.length === 0) {
+          deck = [...Array(quizzes.length).keys()];
 
-        if (available.length === 0) {
-          localStorage.removeItem("quizHistory");
-          available = quizzes;
+          for (let i = deck.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+
+            [deck[i], deck[j]] = [deck[j], deck[i]];
+          }
         }
 
-        const quiz = available[Math.floor(Math.random() * available.length)];
+        const quizIndex = deck.pop();
 
-        const originalIndex = quizzes.indexOf(quiz);
+        localStorage.setItem("quizDeck", JSON.stringify(deck));
 
-        history.push(originalIndex);
-
-        if (history.length > 10) {
-          history.shift();
-        }
-
-        localStorage.setItem("quizHistory", JSON.stringify(history));
-
-        return quiz;
+        return quizzes[quizIndex];
       }
     </script>
   </body>
